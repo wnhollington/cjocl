@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 // Components
-import Navbar from "./navbar"
+import Header from "./header"
 
 // Styles
 import "../styles/layout.scss"
@@ -21,10 +21,11 @@ const Layout = ({ children }) => {
 
   return (
     <div className="container-fluid p-0">
-      <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <main >
-        <main>{children}</main>
-      </main>
+      
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      
+      <main>{children}</main>
+
     </div>
   )
 }
