@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 // Components
 import Header from "./header"
+import Sidebar from "./sidebar"
 import Footer from "./footer"
 
 // Styles
@@ -21,11 +22,19 @@ const Layout = ({ children }) => {
   `)
 
   return (
+    
     <div className="container-fluid p-0">
       
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       
-      <main>{children}</main>
+      <main className="container">
+        
+        <div className="row g-5">
+          <div className="col-md-8">{children}</div>
+          <Sidebar />
+        </div>
+
+      </main>
 
       <Footer />
 
