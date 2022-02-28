@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 // Components
 import Header from "./header"
+import FeaturedPosts from "./featuredPosts"
 import Sidebar from "./sidebar"
 import Footer from "./footer"
 
@@ -29,6 +30,7 @@ const Layout = ({ children }) => {
       
       <main className="container">
         
+        <FeaturedPosts />
         <div className="row g-5">
           <div className="col-md-8">{children}</div>
           <Sidebar />
