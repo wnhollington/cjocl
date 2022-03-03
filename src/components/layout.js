@@ -10,13 +10,13 @@ import Footer from "./footer"
 import "../styles/layout.scss"
 
 const Layout = ({ children }) => {
-  const { title } = useSiteMetadata()
+  const { siteName } = useSiteMetadata()
 
   return (
     
     <div className="container-fluid p-0">
       
-      <Header siteTitle={title ? title : 'Title'} />
+      <Header siteTitle={siteName ? siteName : 'Title'} />
       
       <main className="container">{children}</main>
 
