@@ -1,13 +1,14 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const FeaturedPosts = () => {
 
   // Query Featured Posts
   const data = useStaticQuery(graphql`
     query FeaturedPosts {
-      allStrapiArticle(limit: 3) {
+      allStrapiArticle(filter: {featured: {eq: true}}) {
         edges {
           node {
             description
@@ -16,6 +17,7 @@ const FeaturedPosts = () => {
             category {
               name
             }
+            slug
             image {
               id
               localFile {
@@ -42,7 +44,9 @@ const FeaturedPosts = () => {
         <div class="col-md-6 px-0">
           <h1 class="display-4 fst-italic">{featuredPost.node.title}</h1>
           <p class="lead my-3">{featuredPost.node.description}</p>
-          <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+          <p class="lead mb-0">
+            <Link to={`/${featuredPost.node.slug}`} className="text-white fw-bold">Continue reading...</Link>
+          </p>
         </div>
       </div>
 
@@ -53,6 +57,7 @@ const FeaturedPosts = () => {
           const description = node.description
           const date = node.created_at
           const category = node.category.name
+          const slug = node.slug
           const img = node.image.localFile.childImageSharp.gatsbyImageData
           return (
             <div class="col-md-6">
@@ -62,7 +67,7 @@ const FeaturedPosts = () => {
                   <h3 class="mb-0">{title}</h3>
                   <div class="mb-1 text-muted">{date}</div>
                   <p class="card-text mb-auto">{description}</p>
-                  <a href="#" class="stretched-link">Continue reading</a>
+                  <Link to={`/${slug}`}>Continue reading</Link>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                   <GatsbyImage
