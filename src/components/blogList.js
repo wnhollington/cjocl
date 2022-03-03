@@ -7,13 +7,20 @@ const Bloglist = () => {
   // Query Featured Posts
   const data = useStaticQuery(graphql`
     query blogList {
-      allStrapiArticle {
+      allStrapiArticle(
+        sort: {fields: created_at, order: DESC}
+        filter: {featured: {ne: true}}
+      ) {
         edges {
           node {
             description
             title
             created_at(formatString: "DD MMMM, YYYY")
             category {
+              name
+            }
+            slug
+            author {
               name
             }
           }
@@ -37,12 +44,14 @@ const Bloglist = () => {
             const title = node.title
             const description = node.description
             const date = node.created_at
+            const slug = node.slug
+            const author =node.author.name
             return (
               <article class="blog-post">
                 <h2 class="blog-post-title">{title}</h2>
-                <p class="blog-post-meta">{date} <a href="#">Mark</a></p>
+                <p class="blog-post-meta">{date} <a href="#">{author}</a></p>
                 <p>{description}</p>
-                <Link to="#">Continue Reading</Link>
+                <Link to={`/${slug}`}>Continue Reading</Link>
               </article>
             )
 
