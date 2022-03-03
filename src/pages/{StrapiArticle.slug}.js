@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import ReactMarkdown from "react-markdown"
 
 // Components
 import Layout from '../components/layout'
-import Seo from '../components/seo'
 
 // Render
-export default function Page(props) {
+export default function Article(props) {
   const title = props.data.strapiArticle.title
+  const content = props.data.strapiArticle.content
   return (
     <Layout pageTitle="Page"> 
-      <Seo title="Page" />
       <h1>{title}</h1>
-      <p>General Page Contrent</p>
+      <ReactMarkdown children={content} escapeHtml={false}/>
     </Layout>
   )
 }

@@ -3,14 +3,12 @@ import { graphql } from 'gatsby'
 
 // Components
 import Layout from '../components/layout'
-import Seo from '../components/seo'
 
 // Render
 export default function Category(props) {
   const title = props.data.strapiCategory.name
   return (
-    <Layout pageTitle="Page"> 
-      <Seo title="Page" />
+    <Layout pageTitle="Categories"> 
       <h1>{title}</h1>
       <p>General Category Content</p>
       <ul>
