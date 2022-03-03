@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Boostrap 5 Sass Starter`,
@@ -40,7 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: process.env.API_URL,
         queryLimit: 1000, // Defaults to 100
         collectionTypes: [`article`, 'category', 'writer'],
         singleTypes: ['global', 'homepage']

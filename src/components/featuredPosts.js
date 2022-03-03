@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const FeaturedPosts = () => {
 
@@ -14,6 +15,14 @@ const FeaturedPosts = () => {
             created_at(formatString: "DD MMMM, YYYY")
             category {
               name
+            }
+            image {
+              id
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 250)
+                }
+              }
             }
           }
         }
@@ -44,6 +53,7 @@ const FeaturedPosts = () => {
           const description = node.description
           const date = node.created_at
           const category = node.category.name
+          const img = node.image.localFile.childImageSharp.gatsbyImageData
           return (
             <div class="col-md-6">
               <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -55,7 +65,11 @@ const FeaturedPosts = () => {
                   <a href="#" class="stretched-link">Continue reading</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
-                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                  <GatsbyImage
+                    image={img}
+                    alt={title}
+                    className="bd-placeholder-img"
+                  />
                 </div>
               </div>
             </div>
