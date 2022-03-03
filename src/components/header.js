@@ -2,6 +2,10 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
+// Hooks
+import { useSiteCategories } from "../hooks/use-site-categories"
+
+// Constants
 const isActive = ({ isCurrent }) => {
   return isCurrent ? { className: "p-2 link-secondary active" } : {className: "p-2 link-secondary"}
 }
@@ -10,7 +14,10 @@ const ExactNavLink = props => (
   <Link getProps={isActive} {...props} />
 )
 
+// Render
 const Header = ({ siteTitle }) => {
+  const categories = useSiteCategories();
+
   return (
     <div class="container">
 
@@ -38,10 +45,9 @@ const Header = ({ siteTitle }) => {
 
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-          <ExactNavLink to="/"> Link </ExactNavLink>
-          <ExactNavLink to="/about" > Link </ExactNavLink>
-          <ExactNavLink to="#" > Link </ExactNavLink>
-          <ExactNavLink to="#" > Link </ExactNavLink>
+          {categories.map(({ node }) => {
+            return <ExactNavLink to={`/{${node.slug}}`}>{node.name}</ExactNavLink>
+          })}
         </nav>
       </div>
 
