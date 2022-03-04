@@ -4,27 +4,33 @@ import { Link } from 'gatsby'
 
 // Components
 import Layout from '../components/layout'
+import Sidebar from '../components/sidebar'
 
 // Render
 export default function Category(props) {
-  const title = props.data.strapiCategory.name
   const articles = props.data.strapiCategory.articles
 
   return (
     <Layout pageTitle="Categories"> 
-      <h1>{title}</h1>
-      {articles.map(article => {
-        const title = article.title
-        const slug = article.slug
-        const description = article.description
-        return (
-          <article class="blog-post">
-            <h2 class="blog-post-title">{title}</h2>
-            <p>{description}</p>
-            <Link to={`/${slug}`}>Continue Reading</Link>
-          </article>
-        )
-      })}
+      <div className="row g-5">
+        <div className="col-md-8">
+          {articles.map(article => {
+            const title = article.title
+            const slug = article.slug
+            const description = article.description
+            const date = article.created_at
+            return (
+              <article class="blog-post">
+                <h2 class="blog-post-title">{title}</h2>
+                <p class="blog-post-meta">{date}</p>
+                <p>{description}</p>
+                <Link to={`/${slug}`}>Continue Reading</Link>
+              </article>
+            )
+          })}
+        </div>
+        <Sidebar/>
+      </div>
     </Layout>
   )
 }
