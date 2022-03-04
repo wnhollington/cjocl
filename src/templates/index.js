@@ -47,22 +47,21 @@ const Index = ({ data, pageContext }) => {
 
           {/* Pagination - Navigation */}
           <nav class="blog-pagination">
+            <Link
+              to={prevPage}
+              rel="prev"
+              className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
+            >
+              Older
+            </Link>
 
-              <Link
-                to={prevPage}
-                rel="prev"
-                className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-              >
-                Older
-              </Link>
-
-              <Link
-                to={nextPage}
-                rel="next"
-                className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-              >
-                Newer
-              </Link>
+            <Link
+              to={nextPage}
+              rel="next"
+              className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
+            >
+              Newer
+            </Link>
           </nav>
 
         </div>

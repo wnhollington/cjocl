@@ -50,7 +50,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Create Blog List and Pagination for Index Page
         // Screen Featured Posts
         const indexedPosts = posts.filter(post => post.node.featured !== true)
-        const postsPerPage = 1
+        const postsPerPage = 8
         const numPages = Math.ceil(indexedPosts.length / postsPerPage)
 
         Array.from({ length: numPages }).forEach((_, i) => {

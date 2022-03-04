@@ -23,12 +23,12 @@ const Article = ({ data, pageContext }) => {
       <nav class="blog-pagination" aria-label="Pagination">
         {previous && (
           <Link to={`/${previous.slug}`} rel="previous">
-              <h4>{previous.title}</h4>
+              <h4><span></span>{previous.title}</h4>
           </Link>
         )}
         {next && (
           <Link to={`/${next.slug}`} rel="next">
-            <h4>{next.title}</h4>
+            <h4>{next.title}<span></span></h4>
           </Link>
         )}
       </nav>
