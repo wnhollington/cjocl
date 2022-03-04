@@ -12,19 +12,24 @@ export default function Category(props) {
 
   return (
     <Layout pageTitle="Categories"> 
-      <h1>{title}</h1>
-      {articles.map(article => {
-        const title = article.title
-        const slug = article.slug
-        const description = article.description
-        return (
-          <article class="blog-post">
-            <h2 class="blog-post-title">{title}</h2>
-            <p>{description}</p>
-            <Link to={`/${slug}`}>Continue Reading</Link>
-          </article>
-        )
-      })}
+      <div className="row mb-2">
+        {articles.map(article => {
+          const title = article.title
+          const slug = article.slug
+          const description = article.description
+          return (
+            <div class="col-md-6">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="col p-4 d-flex flex-column">
+                  <h3 class="mb-0">{title}</h3>
+                  <p class="card-text mb-auto">{description}</p>
+                  <Link to={`/${slug}`}>Continue reading</Link>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
     </Layout>
   )
 }
