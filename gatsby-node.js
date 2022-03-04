@@ -7,6 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Templates
     const articleTemplate = path.resolve('./src/templates/article.js')
+    const blogListTemplate = path.resolve('./src/templates/index.js')
 
     // this graphql is function string to pass graphql query, this is a node version of graphql
     // this query returns a promise of slugs. use then instead of async await
@@ -19,13 +20,14 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
+                  featured
                 }
             }
         }
     }
     `, { limit: 1000}).then(result => {
 
-        // Create Blog Pages and Pagination
+        // Create Single Article Pages and Pagination
         const posts = result.data.allStrapiArticle.edges
         posts.forEach((post, index) => {
             
@@ -44,8 +46,25 @@ exports.createPages = ({ graphql, actions }) => {
                 },
             })
         })
-        
 
+        // Create Blog List and Pagination for Index Page
+        // Screen Featured Posts
+        const indexedPosts = posts.filter(post => post.node.featured !== true)
+        const postsPerPage = 1
+        const numPages = Math.ceil(indexedPosts.length / postsPerPage)
+
+        Array.from({ length: numPages }).forEach((_, i) => {
+            createPage({
+                path: i === 0 ? `/` : `/${i + 1}`,
+                component: blogListTemplate,
+                context: {
+                    limit: postsPerPage,
+                    skip: i * postsPerPage,
+                    numPages,
+                    currentPage: i + 1
+                },
+            });
+        });
 
     })
 }
