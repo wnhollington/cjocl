@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import ReactMarkdown from "react-markdown"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons'
 
 // Components
 import Layout from '../components/layout'
@@ -45,12 +47,12 @@ const Article = ({ data, pageContext }) => {
           <nav class="blog-pagination" aria-label="Pagination">
             {previous && (
               <Link to={`/${previous.slug}`} rel="previous">
-                  <h4><span></span>{previous.title}</h4>
+                  <h4><span className='mx-1'><FontAwesomeIcon icon={faAnglesLeft} size="1x" /></span>{previous.title}</h4>
               </Link>
             )}
             {next && (
               <Link to={`/${next.slug}`} rel="next">
-                <h4>{next.title}<span></span></h4>
+                <h4>{next.title}<span className='mx-1'><FontAwesomeIcon icon={faAnglesRight} size="1x" /></span></h4>
               </Link>
             )}
           </nav>
