@@ -4,10 +4,12 @@ import ReactMarkdown from "react-markdown"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons'
+import { faAnglesLeft, faAnglesRight, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
 import Layout from '../components/layout'
+import Sidebar from '../components/sidebar'
 
 // Render
 const Article = ({ data, pageContext }) => {
@@ -18,6 +20,26 @@ const Article = ({ data, pageContext }) => {
   const date = data.strapiArticle.created_at
   const author = data.strapiArticle.author
   const category = data.strapiArticle.category
+
+  const authorSection = (
+    <>
+      <GatsbyImage
+        image={author.picture.localFile.childImageSharp.gatsbyImageData}
+        alt={title}
+        className="rounded"
+      />
+      <h4 className='fst-italic'>{author.name}</h4>
+      <div className='social-icons'>
+          <a href={`mailto:${author.email}`} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+              <FontAwesomeIcon icon={faEnvelope} size="2x"/>
+          </a>
+          <a href={author.linkedin} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+              <FontAwesomeIcon icon={faLinkedin} size="2x"/>
+          </a>
+      </div>
+      <p className="mt-4 mb-0">{author.description}</p>
+    </>
+  )
 
   return (
     <Layout pageTitle={title}>
@@ -59,18 +81,7 @@ const Article = ({ data, pageContext }) => {
         </div>
 
         {/* Sidebar */}
-        <aside className='col-md-4 mt-15'>
-          <div className="p-4 mb-3 bg-light rounded text-center">
-            <GatsbyImage
-              image={author.picture.localFile.childImageSharp.gatsbyImageData}
-              alt={title}
-              className="rounded"
-            />
-            <h4 className='fst-italic'>{author.name}</h4>
-            <p>{author.email}</p>
-            <p className="mb-0">General description of author</p>
-          </div>
-        </aside>
+        <Sidebar aboutSection={authorSection} />
       </div>
       
     </Layout>
@@ -96,6 +107,8 @@ export const query = graphql`
       author {
         name
         email
+        linkedin
+        description
         picture {
           localFile {
             childImageSharp {
@@ -111,3 +124,4 @@ export const query = graphql`
     }
   }
 `
+
