@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
       
       <Header siteTitle={siteName ? siteName : 'Title'} />
       
-      <main className="container mt-5">{children}</main>
+      <main className="container">{children}</main>
 
       <Footer />
 

@@ -1,5 +1,10 @@
 import * as React from "react"
 // import { Link } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faLinkedin,
+  faTwitter
+} from '@fortawesome/free-brands-svg-icons'
 
 const Sidebar = () => {
   return (
@@ -31,12 +36,13 @@ const Sidebar = () => {
         </div>
 
         <div class="p-4">
-          <h4 class="fst-italic">Elsewhere</h4>
-          <ol class="list-unstyled">
-            <li><a href="">GitHub</a></li>
-            <li><a href="">Twitter</a></li>
-            <li><a href="">Facebook</a></li>
-          </ol>
+          <h4 class="fst-italic social-icons">Elsewhere</h4>
+          <a href="https://linkedin.com/in/wnhollington" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+              <FontAwesomeIcon icon={faLinkedin} size="2x"/>
+          </a>
+          <a href="https://twitter.com/wnealhollington" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+              <FontAwesomeIcon icon={faTwitter} size="2x"/>
+          </a>
         </div>
         
       </div>
