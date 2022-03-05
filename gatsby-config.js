@@ -52,5 +52,6 @@ module.exports = {
         singleTypes: ['global', 'homepage']
       },
     },
+    `gatsby-plugin-fontawesome-css`,
   ],
 }
