@@ -17,6 +17,13 @@ const Index = ({ data, pageContext }) => {
   const prevPage = currentPage - 1 === 1 ? "/" : `/${(currentPage - 1).toString()}`
   const nextPage = isLast ? `/${numPages}` : `/${(currentPage + 1).toString()}`
 
+  const aboutSection = (
+    <>
+      <h4 class="fst-italic">About</h4>
+      <p class="mb-0">{data.strapiGlobal.defaultSeo.metaDescription}</p>
+    </>
+  )
+
   return (
     <Layout>
 
@@ -34,10 +41,11 @@ const Index = ({ data, pageContext }) => {
             const date = node.created_at
             const slug = node.slug
             const author =node.author.name
+
             return (
               <article class="blog-post">
                 <h2 class="blog-post-title">{title}</h2>
-                <p class="blog-post-meta">{date} <a href="#">{author}</a></p>
+                <p class="blog-post-meta">{date} <Link to="#">{author}</Link></p>
                 <p>{description}</p>
                 <Link to={`/${slug}`}>Continue Reading</Link>
               </article>
@@ -66,7 +74,9 @@ const Index = ({ data, pageContext }) => {
 
         </div>
 
-        <Sidebar />
+        <Sidebar 
+          aboutSection = {aboutSection}
+        />
 
       </div>
   
@@ -78,6 +88,11 @@ export default Index
 // Graphql call
 export const query = graphql`
   query blogList($skip: Int!, $limit: Int!) {
+    strapiGlobal {
+      defaultSeo {
+        metaDescription
+      }
+    }
     allStrapiArticle(
       sort: {fields: created_at, order: DESC}
       filter: {featured: {ne: true}}
@@ -101,3 +116,5 @@ export const query = graphql`
     }
   }
 `
+
+

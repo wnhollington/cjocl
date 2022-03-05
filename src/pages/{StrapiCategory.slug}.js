@@ -8,7 +8,14 @@ import Sidebar from '../components/sidebar'
 
 // Render
 export default function Category(props) {
+  const category = props.data.strapiCategory
   const articles = props.data.strapiCategory.articles
+  const aboutSection = (
+    <>
+      <h4 className='fst-italic'>Articles about {category.name}</h4>
+      <p className="mb-0">{category.description}</p>
+    </>
+  )
 
   return (
     <Layout pageTitle="Categories"> 
@@ -29,7 +36,7 @@ export default function Category(props) {
             )
           })}
         </div>
-        <Sidebar/>
+        <Sidebar aboutSection={aboutSection}/>
       </div>
     </Layout>
   )
@@ -40,6 +47,7 @@ export const query = graphql`
   query Category($slug: String) {
     strapiCategory(slug: {eq: $slug}) {
       name
+      description
       articles {
         title
         author
