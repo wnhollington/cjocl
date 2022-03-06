@@ -22,23 +22,25 @@ const Article = ({ data, pageContext }) => {
   const category = data.strapiArticle.category
 
   const authorSection = (
-    <>
-      <GatsbyImage
-        image={author.picture.localFile.childImageSharp.gatsbyImageData}
-        alt={title}
-        className="rounded"
-      />
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="mx-auto">
+        <GatsbyImage
+          image={author.picture.localFile.childImageSharp.gatsbyImageData}
+          alt={title}
+          className="rounded"
+        />
+      </div>
       <h4 className='fst-italic'>{author.name}</h4>
       <div className='social-icons'>
-          <a href={`mailto:${author.email}`} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+          <a href={`mailto:${author.email}`} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-primary mx-1">
               <FontAwesomeIcon icon={faEnvelope} size="2x"/>
           </a>
-          <a href={author.linkedin} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+          <a href={author.linkedin} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-primary mx-1">
               <FontAwesomeIcon icon={faLinkedin} size="2x"/>
           </a>
       </div>
       <p className="mt-4 mb-0">{author.description}</p>
-    </>
+    </div>
   )
 
   return (

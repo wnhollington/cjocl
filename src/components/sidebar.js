@@ -38,10 +38,10 @@ const Sidebar = ({ aboutSection="This text should change depending on whether so
 
         <div class="p-4">
           <h4 class="fst-italic social-icons">Elsewhere</h4>
-          <a href="https://linkedin.com/in/wnhollington" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+          <a href="https://linkedin.com/in/wnhollington" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-primary mx-1">
               <FontAwesomeIcon icon={faLinkedin} size="2x"/>
           </a>
-          <a href="https://twitter.com/wnealhollington" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
+          <a href="https://twitter.com/wnealhollington" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-primary mx-1">
               <FontAwesomeIcon icon={faTwitter} size="2x"/>
           </a>
         </div>
