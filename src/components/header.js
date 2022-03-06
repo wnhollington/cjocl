@@ -7,6 +7,9 @@ import { faRss } from '@fortawesome/free-solid-svg-icons'
 // Hooks
 import { useSiteCategories } from "../hooks/use-site-categories"
 
+// Components
+import SignupModal from "./signupModal"
+
 // Constants
 const isActive = ({ isCurrent }) => {
   return isCurrent ? { className: "p-2 link-secondary active" } : {className: "p-2 link-secondary"}
@@ -27,8 +30,10 @@ const Header = ({ siteTitle }) => {
         <div class="row flex-nowrap justify-content-between align-items-center">
           
           <div class="col-4 pt-1">
-            <Link to="#" className="link-secondary">Subcribe</Link>
+            <Link to="#" className="link-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Subcribe</Link>
           </div>
+
+          <SignupModal />
           
           <div class="col-4 text-center">
             <Link to="/" className="blog-header-logo text-dark" href="#">{siteTitle}</Link>

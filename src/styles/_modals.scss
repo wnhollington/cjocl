@@ -1,0 +1,9 @@
+.modal-header {
+  flex-direction: column;
+}
+
+.modal-body {
+  form > .btn-block {
+    width: 100%;
+  }
+}
