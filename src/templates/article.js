@@ -48,7 +48,7 @@ const Article = ({ data, pageContext }) => {
       <header className='mb-4'>
         <h1 className="fw-bolder mb-1">{title}</h1>
         <p className="text-muted fst-italic mb-2">Post on {date} by {author.name}</p>
-        <Link to={`/${category.slug}`} className="badge bg-secondary text-decoration link-link">{category.name}</Link>
+        <Link to={`/${category.slug}`} className="badge bg-primary">{category.name}</Link>
       </header>
 
       <div className="row g-5">

@@ -30,6 +30,12 @@ const Sidebar = ({ aboutSection="This text should change depending on whether so
           </ol>
         </div>
 
+        <div className="p-4">
+          <h4 className="fst-italic">Subscribe</h4>
+          <p>Subscribe to our newsletter to receive notifications whenever additional posts and content is published.</p>
+          <button className="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Subcribe</button>
+        </div>
+
         <div class="p-4">
           <h4 class="fst-italic social-icons">Elsewhere</h4>
           <a href="https://linkedin.com/in/wnhollington" target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-secondary mx-1">
