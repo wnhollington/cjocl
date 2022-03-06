@@ -7,15 +7,14 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Templates
     const articleTemplate = path.resolve('./src/templates/article.js')
+    const categoryTemplate = path.resolve('./src/templates/category.js')
     const blogListTemplate = path.resolve('./src/templates/index.js')
 
     // this graphql is function string to pass graphql query, this is a node version of graphql
     // this query returns a promise of slugs. use then instead of async await
     return graphql(`
-    query loadSlugQuery ($limit: Int!){
-        allStrapiArticle(
-            limit: $limit
-        ) {
+      query articleAndCategory ($limit: Int!){
+          allStrapiArticle(limit: $limit) {
             edges {
                 node {
                   title
@@ -23,8 +22,20 @@ exports.createPages = ({ graphql, actions }) => {
                   featured
                 }
             }
-        }
-    }
+          }
+          allStrapiCategory(limit: $limit) {
+            edges {
+              node {
+                name
+                slug
+                description
+                articles {
+                  id
+                }
+              }
+            }
+          }
+      }
     `, { limit: 1000}).then(result => {
 
         // Create Single Article Pages and Pagination
@@ -48,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
         })
 
         // Create Blog List and Pagination for Index Page
-        // Screen Featured Posts
+        // Screen Featured Posts from Article List
         const indexedPosts = posts.filter(post => post.node.featured !== true)
         const postsPerPage = 8
         const numPages = Math.ceil(indexedPosts.length / postsPerPage)
@@ -66,9 +77,32 @@ exports.createPages = ({ graphql, actions }) => {
             });
         });
 
-    })
+        // Create Category Pages and Pagination
+        const categories = result.data.allStrapiCategory.edges
+        categories.forEach(category => {
+          const categoryName = category.node.name
+          const categorySlug = category.node.slug
+          const categoryDescription = category.node.description
+          const categoryPosts = category.node.articles
+          const numPagesPerCategory = Math.ceil(categoryPosts.length / postsPerPage)
+          Array.from({ length: numPagesPerCategory}).forEach((_, i) => {
+              createPage({
+                  path: i === 0 ? `/${categorySlug}` : `/${categorySlug}/${i + 1}`,
+                  component: categoryTemplate,
+                  context: {
+                      limit: postsPerPage,
+                      skip: i * postsPerPage,
+                      currentPage: i + 1,
+                      numPagesPerCategory,
+                      categoryName,
+                      categorySlug,
+                      categoryDescription
+                  }
+              })
+          })
+        })
+  })
 }
-
 exports.onCreateNode = ({ node, actions, getNode }) => {
     const { createNodeField } = actions
     if (node.internal.type === `strapiArticle`) {
@@ -78,5 +112,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             node,
             value,
         })
+    }
+    if (node.internal.type === `strapiCategory`) {
+      const value = createFilePath({ node, getNode })
+      createNodeField({
+          name: `slug`,
+          node,
+          value,
+      })
     }
 }

@@ -24,6 +24,26 @@ const Index = ({ data, pageContext }) => {
     </>
   )
 
+  const nav = (
+    <nav class="blog-pagination">
+      <Link
+        to={prevPage}
+        rel="prev"
+        className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
+      >
+        Older
+      </Link>
+
+      <Link
+        to={nextPage}
+        rel="next"
+        className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
+      >
+        Newer
+      </Link>
+    </nav>
+  )
+
   return (
     <Layout>
 
@@ -54,23 +74,7 @@ const Index = ({ data, pageContext }) => {
           })}
 
           {/* Pagination - Navigation */}
-          <nav class="blog-pagination">
-            <Link
-              to={prevPage}
-              rel="prev"
-              className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-            >
-              Older
-            </Link>
-
-            <Link
-              to={nextPage}
-              rel="next"
-              className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-            >
-              Newer
-            </Link>
-          </nav>
+          {numPages > 1 ? nav : null}
 
         </div>
 
