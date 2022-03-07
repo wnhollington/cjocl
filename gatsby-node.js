@@ -9,6 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     const articleTemplate = path.resolve('./src/templates/article.js')
     const categoryTemplate = path.resolve('./src/templates/category.js')
     const blogListTemplate = path.resolve('./src/templates/index.js')
+    const writerTemplate = path.resolve('./src/templates/writer.js')
 
     // this graphql is function string to pass graphql query, this is a node version of graphql
     // this query returns a promise of slugs. use then instead of async await
@@ -32,6 +33,15 @@ exports.createPages = ({ graphql, actions }) => {
                 articles {
                   id
                 }
+              }
+            }
+          }
+          allStrapiWriter{
+            edges {
+              node {
+                name
+                email
+                slug
               }
             }
           }
@@ -101,6 +111,21 @@ exports.createPages = ({ graphql, actions }) => {
               })
           })
         })
+
+        // Create Writers Pages
+        const writers = result.data.allStrapiWriter.edges
+        writers.forEach(writer => {
+          createPage({
+            path: `/${writer.node.slug}`,
+            component: writerTemplate,
+            context: {
+                name: writer.node.name,
+                slug: writer.node.slug,
+                email: writer.node.email,
+                linkedin: writer.node.linkedin
+            },
+          })
+        })
   })
 }
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -114,6 +139,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         })
     }
     if (node.internal.type === `strapiCategory`) {
+      const value = createFilePath({ node, getNode })
+      createNodeField({
+          name: `slug`,
+          node,
+          value,
+      })
+    }
+    if (node.internal.type === `strapiWriter`) {
       const value = createFilePath({ node, getNode })
       createNodeField({
           name: `slug`,
