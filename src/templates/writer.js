@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -10,7 +10,7 @@ import Layout from '../components/layout'
 
 // Render
 const Writer = ({ data, pageContext }) => {
-  const {name, email, linkedin } = pageContext
+  const {name, email, linkedin, description } = pageContext
   const articles = data.allStrapiArticle.edges
 
   return (
@@ -44,7 +44,27 @@ const Writer = ({ data, pageContext }) => {
 
         {/* Author Bio */}
         <div className="col-md-8">
-          
+          <p>
+            {description}
+          </p>
+          <div>
+            <h2>Recent Articles by {name}</h2>
+            {articles.map(article => {
+              const title = article.node.title
+              const slug = article.node.slug
+              const description = article.node.description
+              const date = article.node.created_at
+              const author = article.node.author
+              return (
+                <article class="blog-post">
+                  <h4 class="blog-post-title">{title}</h4>
+                  <p class="blog-post-meta">{date} by <Link to={`/${author.slug}`}>{author.name}</Link></p>
+                  <p>{description}</p>
+                  <Link to={`/${slug}`}>Continue Reading</Link>
+                </article>
+              )
+            })}
+          </div>
         </div>
       </div>
     </Layout>
@@ -56,13 +76,16 @@ export default Writer
 // Graphql 
 export const query = graphql`
   query Writer($slug: String) {
-    allStrapiArticle(filter: {author: {slug: {eq: $slug}}}) {
+    allStrapiArticle(
+      filter: {author: {slug: {eq: $slug}}}
+      sort: {fields: created_at, order: DESC}
+      ) {
       edges {
         node {
           title
           slug
           description
-          created_at(formatString: "DD MM YYYY")
+          created_at(formatString: "DD MM, YYYY")
           author {
             picture {
               localFile {

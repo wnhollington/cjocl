@@ -42,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
                 name
                 email
                 slug
+                description
               }
             }
           }
@@ -122,7 +123,8 @@ exports.createPages = ({ graphql, actions }) => {
                 name: writer.node.name,
                 slug: writer.node.slug,
                 email: writer.node.email,
-                linkedin: writer.node.linkedin
+                linkedin: writer.node.linkedin,
+                description: writer.node.description,
             },
           })
         })

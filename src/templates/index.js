@@ -78,9 +78,7 @@ const Index = ({ data, pageContext }) => {
 
         </div>
 
-        <Sidebar 
-          aboutSection = {aboutSection}
-        />
+        <Sidebar aboutSection = {aboutSection} />
 
       </div>
   
