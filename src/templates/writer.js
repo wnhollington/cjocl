@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -49,21 +49,40 @@ const Writer = ({ data, pageContext }) => {
           </p>
           <div>
             <h2>Recent Articles by {name}</h2>
-            {articles.map(article => {
-              const title = article.node.title
-              const slug = article.node.slug
-              const description = article.node.description
-              const date = article.node.created_at
-              const author = article.node.author
-              return (
-                <article class="blog-post">
-                  <h4 class="blog-post-title">{title}</h4>
-                  <p class="blog-post-meta">{date} by <Link to={`/${author.slug}`}>{author.name}</Link></p>
-                  <p>{description}</p>
-                  <Link to={`/${slug}`}>Continue Reading</Link>
-                </article>
-              )
-            })}
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                {articles.map((article, index) => {
+                  const title = article.node.title
+                  const description = article.node.description
+                  return (
+                    <div class={`carousel-item ${index === 0 ? 'active' : null}`}>
+                      <GatsbyImage
+                        image={article.node.image.localFile.childImageSharp.gatsbyImageData}
+                        className="d-block w-100"
+                        alt={description}
+                      />
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>{title}</h5>
+                        <p>{description}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -86,6 +105,13 @@ export const query = graphql`
           slug
           description
           created_at(formatString: "DD MM, YYYY")
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
           author {
             picture {
               localFile {
