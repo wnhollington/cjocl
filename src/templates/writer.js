@@ -49,17 +49,17 @@ const Writer = ({ data, pageContext }) => {
           </p>
           <div>
             <h2>Recent Articles by {name}</h2>
-            <div className="row">
               {articles.map(article => {
                 const title = article.node.title
                 const slug = article.node.slug
                 const date = article.node.created_at
-                const img = article.node.image.localFile.childImageSharp.gatsbyImageData
                 return (
-                  <p>Article List</p>
+                  <article class="">
+                    <h4 class="blog-post-title"><Link to={`/${slug}`}>{title}</Link></h4>
+                    <p className="blog-post-meta">{date}</p>
+                  </article>
                 )
               })}
-            </div>
           </div>
         </div>
       </div>
@@ -81,13 +81,16 @@ export const query = graphql`
           title
           slug
           description
-          created_at(formatString: "DD MM, YYYY")
+          created_at(formatString: "DD MMMM, YYYY")
           image {
             localFile {
               childImageSharp {
                 gatsbyImageData
               }
             }
+          }
+          category {
+            name
           }
           author {
             picture {

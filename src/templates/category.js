@@ -54,10 +54,9 @@ const Category = ({ pageContext, data }) => {
             const author = article.node.author
             return (
               <article class="blog-post">
-                <h2 class="blog-post-title">{title}</h2>
+                <h2 class="blog-post-title"><Link to={`/${slug}`}>{title}</Link></h2>
                 <p class="blog-post-meta">{date} by <Link to={`/${author.slug}`}>{author.name}</Link></p>
                 <p>{description}</p>
-                <Link to={`/${slug}`}>Continue Reading</Link>
               </article>
             )
           })}
