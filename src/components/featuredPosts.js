@@ -70,7 +70,7 @@ const FeaturedPosts = () => {
                     class="h-100 rounded"
                   />
                 </div>
-                <div class="col p-1">
+                <div class="col ps-md-2">
                   <strong class="mb-2 badge bg-primary">{category}</strong>
                   <h3 class="mb-0">{title}</h3>
                   <div class="mb-1 text-muted">{date}</div>

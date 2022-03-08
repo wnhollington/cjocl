@@ -25,7 +25,7 @@ const Index = ({ data, pageContext }) => {
   )
 
   const nav = (
-    <nav class="blog-pagination">
+    <nav class="blog-list-pagination">
       <Link
         to={prevPage}
         rel="prev"
