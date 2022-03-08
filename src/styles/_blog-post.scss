@@ -1,12 +1,23 @@
 .blog-post {
-  margin-bottom: 4rem;
-}
-.blog-post-title {
-  margin-bottom: .25rem;
-}
-.blog-post-meta {
-  margin-bottom: 1.25rem;
-  color: #727272;
+  margin-bottom: 2rem;
+
+  .blog-post-title {
+    margin-bottom: .25rem;
+    a {
+      text-decoration: none;
+      font-style: italic;
+    }
+  }
+
+  .blog-post-meta {
+    margin-bottom: 1.25rem;
+    color: #727272;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
 }
 
 .blog-pagination {

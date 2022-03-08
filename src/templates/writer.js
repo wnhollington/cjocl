@@ -25,7 +25,7 @@ const Writer = ({ data, pageContext }) => {
                   <GatsbyImage
                     image={articles[0].node.author.picture.localFile.childImageSharp.gatsbyImageData}
                     alt={name}
-                    className="rounded"
+                    className="rounded mb-2"
                   />
                 </div>
                 <h4 className='fst-italic'>{name}</h4>
@@ -44,17 +44,18 @@ const Writer = ({ data, pageContext }) => {
 
         {/* Author Bio */}
         <div className="col-md-8">
+          <h1 class="d-none">{name}</h1>
           <p>
             {description}
           </p>
-          <div>
-            <h2>Recent Articles by {name}</h2>
+          <div class="mt-4">
+            <h2>Recent Articles</h2>
               {articles.map(article => {
                 const title = article.node.title
                 const slug = article.node.slug
                 const date = article.node.created_at
                 return (
-                  <article class="">
+                  <article class="blog-post p-1 m-0">
                     <h4 class="blog-post-title"><Link to={`/${slug}`}>{title}</Link></h4>
                     <p className="blog-post-meta">{date}</p>
                   </article>
@@ -75,6 +76,7 @@ export const query = graphql`
     allStrapiArticle(
       filter: {author: {slug: {eq: $slug}}}
       sort: {fields: created_at, order: DESC}
+      limit: 4
       ) {
       edges {
         node {

@@ -73,15 +73,20 @@ const Article = ({ data, pageContext }) => {
           {/* Pagination */}
           <nav class="blog-article-pagination d-flex justify-content-around" aria-label="Pagination">
             <div className="previous-page">
-              <h4>Previous Page</h4>
               {previous && (
-                <Link to={`/${previous.slug}`} rel="previous">{previous.title}</Link>
+                <>
+                  <h4>Previous Article</h4>
+                  <Link to={`/${previous.slug}`} rel="previous">{previous.title}</Link>
+                </>
               )}
             </div>
             <div className="next-page">
-              <h4>Next Page</h4>
               {next && (
-                <Link to={`/${next.slug}`} rel="next">{next.title}</Link>
+                <>
+                  <h4>Next Article</h4>
+                  <Link to={`/${next.slug}`} rel="next">{next.title}</Link>
+                </>
+
               )}
             </div>
           </nav>

@@ -12,6 +12,11 @@ $primary: #663399;
   }
 }
 
+::selection {
+  background-color: $primary;
+  color: whitesmoke;
+}
+
 // Custom Styles
 @import "header";
 @import "pagination";
