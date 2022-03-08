@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAnglesLeft, faAnglesRight, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
@@ -68,17 +68,19 @@ const Article = ({ data, pageContext }) => {
           </article>
 
           {/* Pagination */}
-          <nav class="blog-pagination" aria-label="Pagination">
-            {previous && (
-              <Link to={`/${previous.slug}`} rel="previous">
-                  <h4><span className='mx-1'><FontAwesomeIcon icon={faAnglesLeft} size="1x" /></span>{previous.title}</h4>
-              </Link>
-            )}
-            {next && (
-              <Link to={`/${next.slug}`} rel="next">
-                <h4>{next.title}<span className='mx-1'><FontAwesomeIcon icon={faAnglesRight} size="1x" /></span></h4>
-              </Link>
-            )}
+          <nav class="blog-article-pagination d-flex justify-content-around" aria-label="Pagination">
+            <div className="previous-page">
+              <h4>Previous Page</h4>
+              {previous && (
+                <Link to={`/${previous.slug}`} rel="previous">{previous.title}</Link>
+              )}
+            </div>
+            <div className="next-page">
+              <h4>Next Page</h4>
+              {next && (
+                <Link to={`/${next.slug}`} rel="next">{next.title}</Link>
+              )}
+            </div>
           </nav>
         </div>
 
