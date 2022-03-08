@@ -51,13 +51,12 @@ const Category = ({ pageContext, data }) => {
             const slug = article.node.slug
             const description = article.node.description
             const date = article.node.created_at
-            const author = article.node.author.name
+            const author = article.node.author
             return (
               <article class="blog-post">
-                <h2 class="blog-post-title">{title}</h2>
-                <p class="blog-post-meta">{date} by {author}</p>
+                <h2 class="blog-post-title"><Link to={`/${slug}`}>{title}</Link></h2>
+                <p class="blog-post-meta">{date} by <Link to={`/${author.slug}`}>{author.name}</Link></p>
                 <p>{description}</p>
-                <Link to={`/${slug}`}>Continue Reading</Link>
               </article>
             )
           })}
@@ -88,6 +87,7 @@ export const query = graphql`
           title
           author {
             name
+            slug
           }
           created_at(formatString: "MMMM DD, YYYY")
           slug

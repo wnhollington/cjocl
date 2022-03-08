@@ -4,7 +4,11 @@ import ReactMarkdown from "react-markdown"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+<<<<<<< HEAD
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+=======
+import { faAnglesLeft, faAnglesRight, faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons'
+>>>>>>> writers
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
@@ -32,6 +36,9 @@ const Article = ({ data, pageContext }) => {
       </div>
       <h4 className='fst-italic'>{author.name}</h4>
       <div className='social-icons'>
+          <Link to={`/${author.slug}`}  className="btn btn-sm btn-outline-primary mx-1">
+              <FontAwesomeIcon icon={faLink} size="2x"/>
+          </Link>
           <a href={`mailto:${author.email}`} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-primary mx-1">
               <FontAwesomeIcon icon={faEnvelope} size="2x"/>
           </a>
@@ -103,7 +110,7 @@ export const query = graphql`
       image {
         localFile {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData
           }
         }
       }
@@ -112,6 +119,7 @@ export const query = graphql`
         name
         email
         linkedin
+        slug
         description
         picture {
           localFile {
