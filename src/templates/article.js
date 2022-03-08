@@ -4,11 +4,7 @@ import ReactMarkdown from "react-markdown"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-<<<<<<< HEAD
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-=======
-import { faAnglesLeft, faAnglesRight, faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons'
->>>>>>> writers
+import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
