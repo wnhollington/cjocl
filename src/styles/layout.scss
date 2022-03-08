@@ -6,6 +6,12 @@ $primary: #663399;
 // Imports
 @import "~bootstrap/scss/bootstrap";
 
+@include media-breakpoint-only(md) {
+  .container {
+    max-width: 775px;
+  }
+}
+
 // Custom Styles
 @import "header";
 @import "pagination";
