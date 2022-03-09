@@ -10,8 +10,32 @@ import Layout from '../components/layout'
 
 // Render
 const Writer = ({ data, pageContext }) => {
-  const {name, email, linkedin, description } = pageContext
+  const {name, email, linkedin, description, slug, currentPage, numPagesPerWriter } = pageContext
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPagesPerWriter
+  const prevPage = currentPage - 1 === 1 ? `/${slug}` : `/${slug}/${(currentPage - 1).toString()}`
+  const nextPage = isLast ? `/${slug}/${numPagesPerWriter}` : `/${slug}/${(currentPage + 1).toString()}`
   const articles = data.allStrapiArticle.edges
+
+  const nav = (
+    <nav class="blog-pagination">
+      <Link
+        to={prevPage}
+        rel="prev"
+        className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
+      >
+        Older
+      </Link>
+
+      <Link
+        to={nextPage}
+        rel="next"
+        className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
+      >
+        Newer
+      </Link>
+    </nav>
+  )
 
   return (
     <Layout pageTitle={name}>
@@ -62,6 +86,8 @@ const Writer = ({ data, pageContext }) => {
                   </article>
                 )
               })}
+            {/* Pagination - Navigation*/}
+            {numPagesPerWriter > 1 ? nav : null}
           </div>
         </div>
       </div>
@@ -73,11 +99,12 @@ export default Writer
 
 // Graphql 
 export const query = graphql`
-  query Writer($slug: String) {
+  query Writer($slug: String, $skip: Int!, $limit: Int!) {
     allStrapiArticle(
       filter: {author: {slug: {eq: $slug}}}
       sort: {fields: created_at, order: DESC}
-      limit: 4
+      limit: $limit
+      skip: $skip
       ) {
       edges {
         node {

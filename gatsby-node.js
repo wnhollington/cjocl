@@ -128,7 +128,7 @@ exports.createPages = ({ graphql, actions }) => {
           const linkedin = writer.node.linkedin 
           const description = writer.node.description
           const writerPosts = writer.node.articles
-          const postsPerWriterPage = 1
+          const postsPerWriterPage = 6
           const numPagesPerWriter = Math.ceil(writerPosts.length / postsPerWriterPage)
           Array.from({ length: numPagesPerWriter}).forEach((_, i) => {
               createPage({
