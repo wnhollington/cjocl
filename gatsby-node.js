@@ -21,6 +21,9 @@ exports.createPages = ({ graphql, actions }) => {
                   title
                   slug
                   featured
+                  category {
+                    slug
+                  }
                 }
             }
           }
@@ -59,7 +62,7 @@ exports.createPages = ({ graphql, actions }) => {
 
             // previous and next are objects props sent as pageContect object to blogPostTemplate
             createPage({
-                path: `/${post.node.slug}`,
+                path: `/${post.node.category.slug}/${post.node.slug}`,
                 component: articleTemplate,
                 context: {
                     slug: post.node.slug,

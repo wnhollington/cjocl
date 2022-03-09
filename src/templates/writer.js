@@ -54,9 +54,10 @@ const Writer = ({ data, pageContext }) => {
                 const title = article.node.title
                 const slug = article.node.slug
                 const date = article.node.created_at
+                const category = article.node.category
                 return (
                   <article class="blog-post p-1 m-0">
-                    <h4 class="blog-post-title"><Link to={`/${slug}`}>{title}</Link></h4>
+                    <h4 class="blog-post-title"><Link to={`/${category.slug}/${slug}`}>{title}</Link></h4>
                     <p className="blog-post-meta">{date}</p>
                   </article>
                 )
@@ -93,6 +94,7 @@ export const query = graphql`
           }
           category {
             name
+            slug
           }
           author {
             picture {
