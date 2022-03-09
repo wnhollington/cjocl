@@ -46,6 +46,9 @@ exports.createPages = ({ graphql, actions }) => {
                 email
                 slug
                 description
+                articles {
+                  id
+                }
               }
             }
           }
@@ -115,20 +118,34 @@ exports.createPages = ({ graphql, actions }) => {
               })
           })
         })
-
-        // Create Writers Pages
+        
+        // Create Writers Page
         const writers = result.data.allStrapiWriter.edges
         writers.forEach(writer => {
-          createPage({
-            path: `/${writer.node.slug}`,
-            component: writerTemplate,
-            context: {
-                name: writer.node.name,
-                slug: writer.node.slug,
-                email: writer.node.email,
-                linkedin: writer.node.linkedin,
-                description: writer.node.description,
-            },
+          const name = writer.node.name
+          const slug = writer.node.slug
+          const email = writer.node.email
+          const linkedin = writer.node.linkedin 
+          const description = writer.node.description
+          const writerPosts = writer.node.articles
+          const postsPerWriterPage = 1
+          const numPagesPerWriter = Math.ceil(writerPosts.length / postsPerWriterPage)
+          Array.from({ length: numPagesPerWriter}).forEach((_, i) => {
+              createPage({
+                  path: i === 0 ? `/${slug}` : `/${slug}/${i + 1}`,
+                  component: writerTemplate,
+                  context: {
+                      limit: postsPerWriterPage,
+                      skip: i * postsPerWriterPage,
+                      currentPage: i + 1,
+                      numPagesPerWriter,
+                      name,
+                      slug,
+                      email,
+                      linkedin,
+                      description,
+                  }
+              })
           })
         })
   })
