@@ -10,6 +10,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 // Components
 import Layout from '../components/layout'
 import Sidebar from '../components/sidebar'
+import SocialShare from '../components/socialShare'
 
 // Render
 const Article = ({ data, pageContext }) => {
@@ -20,6 +21,8 @@ const Article = ({ data, pageContext }) => {
   const date = data.strapiArticle.created_at
   const author = data.strapiArticle.author
   const category = data.strapiArticle.category
+  const description = data.strapiArticle.description
+  const slug = data.strapiArticle.slug
 
   const authorSection = (
     <div class="d-flex flex-column justify-content-center align-items-center">
@@ -60,7 +63,7 @@ const Article = ({ data, pageContext }) => {
 
         <div className="col-md-8">
           {/* Article */}
-          <article>
+          <article class="pb-3">
             {/* Feature Image */}
             <figure className='mb-4'>
               <GatsbyImage image={img} alt={title} className="img-fluid rounded" />
@@ -68,6 +71,9 @@ const Article = ({ data, pageContext }) => {
 
             {/* Article Content */}
             <ReactMarkdown children={content} className="mb-5"/>
+
+            {/* Social Share */}
+            <SocialShare url={`www.test.com/${category.slug}/${slug}`} title={title} description={description}/>
           </article>
 
           {/* Pagination */}
@@ -107,6 +113,7 @@ export const query = graphql`
     strapiArticle(slug: {eq: $slug}) {
       title
       created_at(formatString: "DD MMMM, YYYY")
+      description
       content
       image {
         localFile {
