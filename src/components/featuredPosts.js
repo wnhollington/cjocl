@@ -16,6 +16,7 @@ const FeaturedPosts = () => {
             created_at(formatString: "DD MMMM, YYYY")
             category {
               name
+              slug
             }
             slug
             image {
@@ -45,7 +46,7 @@ const FeaturedPosts = () => {
           <h1 class="display-4 fst-italic">{featuredPost.node.title}</h1>
           <p class="lead my-3">{featuredPost.node.description}</p>
           <p class="lead mb-0">
-            <Link to={`/${featuredPost.node.slug}`} className="text-white fw-bold">Continue reading...</Link>
+            <Link to={`/${featuredPost.node.category.slug}/${featuredPost.node.slug}`} className="text-white fw-bold">Continue reading...</Link>
           </p>
         </div>
       </div>
@@ -56,7 +57,7 @@ const FeaturedPosts = () => {
           const title = node.title
           const description = node.description
           const date = node.created_at
-          const category = node.category.name
+          const category = node.category
           const slug = node.slug
           const img = node.image.localFile.childImageSharp.gatsbyImageData
           
@@ -71,11 +72,11 @@ const FeaturedPosts = () => {
                   />
                 </div>
                 <div class="col ps-md-2">
-                  <strong class="mb-2 badge bg-primary">{category}</strong>
+                  <strong class="mb-2 badge bg-primary">{category.name}</strong>
                   <h3 class="mb-0">{title}</h3>
                   <div class="mb-1 text-muted">{date}</div>
                   <p class="card-text mb-auto">{description}</p>
-                  <Link to={`/${slug}`}>Continue reading</Link>
+                  <Link to={`/${category.slug}/${slug}`}>Continue reading</Link>
                 </div>
               </div>
             </div>

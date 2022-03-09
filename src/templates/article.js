@@ -76,7 +76,7 @@ const Article = ({ data, pageContext }) => {
               {previous && (
                 <>
                   <h4>Previous Article</h4>
-                  <Link to={`/${previous.slug}`} rel="previous">{previous.title}</Link>
+                  <Link to={`/${previous.category.slug}/${previous.slug}`} rel="previous">{previous.title}</Link>
                 </>
               )}
             </div>
@@ -84,7 +84,7 @@ const Article = ({ data, pageContext }) => {
               {next && (
                 <>
                   <h4>Next Article</h4>
-                  <Link to={`/${next.slug}`} rel="next">{next.title}</Link>
+                  <Link to={`/${next.category.slug}/${next.slug}`} rel="next">{next.title}</Link>
                 </>
 
               )}
