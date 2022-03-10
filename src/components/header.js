@@ -8,7 +8,7 @@ import { faRss } from '@fortawesome/free-solid-svg-icons'
 import { useSiteCategories } from "../hooks/use-site-categories"
 
 // Components
-import SignupModal from "./signupModal"
+import SignupModal from "./signup/signupModal"
 
 // Constants
 const isActive = ({ isCurrent }) => {
