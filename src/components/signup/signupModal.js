@@ -1,5 +1,5 @@
 import * as React from "react"
-import SignupForm from '../components/signupForm'
+import MailChimpForm from './mailchimpForm'
 
 const SignupModal = () => {
   return (
@@ -12,7 +12,7 @@ const SignupModal = () => {
             <p>Signup for our newsletter to receive the in time updates when additional content and articles are published.</p>
           </div>
           <div class="modal-body">
-            <SignupForm />
+            <MailChimpForm />
           </div>
         </div>
       </div>
