@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     
     <div className="container-fluid p-0">
       
-      <Header siteTitle={siteName ? siteName : 'Title'} />
+      <Header siteTitle={siteName ? siteName : "Test"} />
       
       <main className="container">{children}</main>
 

@@ -3,6 +3,11 @@ require("dotenv").config({
 });
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://example.com`,
+    description: `test`,
+    title: `title`
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
@@ -58,6 +63,57 @@ module.exports = {
       options: {
         endpoint: process.env.MAILCHIMP_ENDPOINT
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allStrapiArticle } }) => {
+              return allStrapiArticle.edges.map(edge => {
+                return Object.assign({}, edge.node, {
+                  description: edge.node.description,
+                  date: edge.node.created_at,
+                  url: `${site.siteMetadata.siteUrl}/${edge.node.category.slug}/${edge.node.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/${edge.node.category.slug}/${edge.node.slug}`,
+                  // custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allStrapiArticle {
+                  edges {
+                    node {
+                      title
+                      description
+                      created_at(formatString: "DD MMMM,YYYY")
+                      slug
+                      category {
+                        slug
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Your Site's RSS Feed",
+          },
+        ],
+      },
+    },
   ],
 }
