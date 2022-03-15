@@ -50,7 +50,7 @@ const Article = ({ data, pageContext }) => {
   )
 
   return (
-    <Layout pageTitle={title}>
+    <Layout title={title} description={description}>
 
       {/* Header */}
       <header className='mb-4'>

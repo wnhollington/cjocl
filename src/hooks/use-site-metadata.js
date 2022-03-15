@@ -7,6 +7,9 @@ export const useSiteMetadata = () => {
         allStrapiGlobal {
           nodes {
             siteName
+            defaultSeo {
+              metaDescription
+            }
             favicon {
               localFile {
                 childImageSharp {

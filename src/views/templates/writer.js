@@ -38,7 +38,7 @@ const Writer = ({ data, pageContext }) => {
   )
 
   return (
-    <Layout pageTitle={name}>
+    <Layout title={name} description={description}>
       <div className="row g-5">
         {/* Sidebar */}
         <div className="col-md-4">

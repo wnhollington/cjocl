@@ -45,7 +45,7 @@ const Index = ({ data, pageContext }) => {
   )
 
   return (
-    <Layout>
+    <Layout title="Home" description="Home Page">
 
       <FeaturedPosts />
 
