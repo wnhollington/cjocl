@@ -43,7 +43,7 @@ const Category = ({ pageContext, data }) => {
   )
 
   return (
-    <Layout pageTitle={categoryName}> 
+    <Layout title={categoryName} description={categoryDescription}> 
       <div className="row g-5">
         <div className="col-md-8">
           {articles.map(article => {
