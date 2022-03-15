@@ -50,7 +50,7 @@ const Category = ({ pageContext, data }) => {
             const title = article.node.title
             const slug = article.node.slug
             const description = article.node.description
-            const date = article.node.created_at
+            const date = article.node.createdAt
             const author = article.node.author
             const category = article.node.category
             return (
@@ -90,7 +90,7 @@ export const query = graphql`
             name
             slug
           }
-          created_at(formatString: "MMMM DD, YYYY")
+          createdAt(formatString: "MMMM DD, YYYY")
           slug
           description
           category {

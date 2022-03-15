@@ -99,7 +99,7 @@ module.exports = {
                     node {
                       title
                       description
-                      created_at(formatString: "DD MMMM,YYYY")
+                      createdAt(formatString: "DD MMMM,YYYY")
                       slug
                       category {
                         slug

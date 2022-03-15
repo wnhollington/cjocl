@@ -18,7 +18,7 @@ const Article = ({ data, pageContext }) => {
   const title = data.strapiArticle.title
   const content = data.strapiArticle.content
   const img = data.strapiArticle.image.localFile.childImageSharp.gatsbyImageData
-  const date = data.strapiArticle.created_at
+  const date = data.strapiArticle.createdAt
   const author = data.strapiArticle.author
   const category = data.strapiArticle.category
   const description = data.strapiArticle.description
@@ -112,7 +112,7 @@ export const query = graphql`
   query Article($slug: String) {
     strapiArticle(slug: {eq: $slug}) {
       title
-      created_at(formatString: "DD MMMM, YYYY")
+      createdAt(formatString: "DD MMMM, YYYY")
       description
       content
       image {

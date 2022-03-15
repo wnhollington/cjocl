@@ -13,7 +13,7 @@ const FeaturedPosts = () => {
           node {
             description
             title
-            created_at(formatString: "DD MMMM, YYYY")
+            createdAt(formatString: "DD MMMM, YYYY")
             category {
               name
               slug

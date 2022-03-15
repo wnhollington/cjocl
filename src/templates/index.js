@@ -58,7 +58,7 @@ const Index = ({ data, pageContext }) => {
           {posts.map(({ node }) => {
             const title = node.title
             const description = node.description
-            const date = node.created_at
+            const date = node.createdAt
             const slug = node.slug
             const author = node.author
             const categorySlug = node.category.slug
@@ -96,7 +96,7 @@ export const query = graphql`
       }
     }
     allStrapiArticle(
-      sort: {fields: created_at, order: DESC}
+      sort: {fields: createdAt, order: DESC}
       filter: {featured: {ne: true}}
       limit: $limit
       skip: $skip
@@ -105,7 +105,7 @@ export const query = graphql`
         node {
           description
           title
-          created_at(formatString: "DD MMMM, YYYY")
+          createdAt(formatString: "DD MMMM, YYYY")
           category {
             name
             slug

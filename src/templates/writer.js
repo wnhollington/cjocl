@@ -77,7 +77,7 @@ const Writer = ({ data, pageContext }) => {
               {articles.map(article => {
                 const title = article.node.title
                 const slug = article.node.slug
-                const date = article.node.created_at
+                const date = article.node.createdAt
                 const category = article.node.category
                 return (
                   <article class="blog-post p-1 m-0">
@@ -102,7 +102,7 @@ export const query = graphql`
   query Writer($slug: String, $skip: Int!, $limit: Int!) {
     allStrapiArticle(
       filter: {author: {slug: {eq: $slug}}}
-      sort: {fields: created_at, order: DESC}
+      sort: {fields: createdAt, order: DESC}
       limit: $limit
       skip: $skip
       ) {
@@ -111,7 +111,7 @@ export const query = graphql`
           title
           slug
           description
-          created_at(formatString: "DD MMMM, YYYY")
+          createdAt(formatString: "DD MMMM, YYYY")
           image {
             localFile {
               childImageSharp {
