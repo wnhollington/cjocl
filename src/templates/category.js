@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 
 // Components
-import Layout from '../components/layout'
-import Sidebar from '../components/sidebar'
+import Layout from '../components/layout/layout'
+import Sidebar from '../components/layout/sidebar'
 
 // Render
 const Category = ({ pageContext, data }) => {

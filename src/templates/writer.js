@@ -6,7 +6,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
-import Layout from '../components/layout'
+import Layout from '../components/layout/layout'
 
 // Render
 const Writer = ({ data, pageContext }) => {

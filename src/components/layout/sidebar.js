@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 // Hooks
-import { useSiteCategories } from "../hooks/use-site-categories"
+import { useSiteCategories } from "../../hooks/use-site-categories"
 
 const Sidebar = ({ aboutSection="This text should change depending on whether someone imputs proper text"}) => {
   const categories = useSiteCategories();
