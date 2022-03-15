@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 
 // Components
-import Layout from "../components/layout/layout"
-import FeaturedPosts from "../components/featuredPosts"
-import Sidebar from "../components/layout/sidebar"
+import Layout from "../../components/layout/layout"
+import FeaturedPosts from "../../components/featuredPosts"
+import Sidebar from "../../components/layout/sidebar"
 
 // Render
 const Index = ({ data, pageContext }) => {
