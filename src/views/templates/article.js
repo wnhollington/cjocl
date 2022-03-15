@@ -8,9 +8,9 @@ import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
-import Layout from '../components/layout/layout'
-import Sidebar from '../components/layout/sidebar'
-import SocialShare from '../components/socialShare'
+import Layout from '../../components/layout/layout'
+import Sidebar from '../../components/layout/sidebar'
+import SocialShare from '../../components/socialShare'
 
 // Render
 const Article = ({ data, pageContext }) => {

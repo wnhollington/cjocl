@@ -6,10 +6,10 @@ exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
 
     // Templates
-    const articleTemplate = path.resolve('./src/templates/article.js')
-    const categoryTemplate = path.resolve('./src/templates/category.js')
-    const blogListTemplate = path.resolve('./src/templates/index.js')
-    const writerTemplate = path.resolve('./src/templates/writer.js')
+    const articleTemplate = path.resolve('./src/views/templates/article.js')
+    const categoryTemplate = path.resolve('./src/views/templates/category.js')
+    const blogListTemplate = path.resolve('./src/views/templates/index.js')
+    const writerTemplate = path.resolve('./src/views/templates/writer.js')
 
     // this graphql is function string to pass graphql query, this is a node version of graphql
     // this query returns a promise of slugs. use then instead of async await
