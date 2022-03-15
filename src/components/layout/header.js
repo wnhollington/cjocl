@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRss } from '@fortawesome/free-solid-svg-icons'
 
 // Hooks
-import { useSiteCategories } from "../hooks/use-site-categories"
+import { useSiteCategories } from "../../hooks/use-site-categories"
 
 // Components
-import SignupModal from "./signup/signupModal"
+import SignupModal from "../signup/signupModal"
 
 // Constants
 const isActive = ({ isCurrent }) => {
