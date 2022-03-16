@@ -14,7 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
     // this graphql is function string to pass graphql query, this is a node version of graphql
     // this query returns a promise of slugs. use then instead of async await
     return graphql(`
-      query articleAndCategory ($limit: Int!){
+      query Query ($limit: Int!){
           allStrapiArticle(limit: $limit) {
             edges {
                 node {
