@@ -24,7 +24,7 @@ const Layout = ({ title, description, children }) => {
       
       <Header siteTitle={siteName ? siteName : "Test"} />
       
-      <main className="container">{children}</main>
+      <main className="container py-2">{children}</main>
 
       <Footer />
 
