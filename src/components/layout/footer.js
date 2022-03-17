@@ -1,10 +1,14 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
+// Components
+import NavFooter from "./navigation/navFooter"
+
 const Footer = () => {
   return (
     <footer class="blog-footer bg-light">
-        <Link to="#">Back to top</Link>
+      <NavFooter />
+      <Link to="#">Back to top</Link>
     </footer>
   )
 }
