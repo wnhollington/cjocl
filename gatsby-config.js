@@ -53,8 +53,8 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL,
         queryLimit: 1000, // Defaults to 100
-        collectionTypes: [`article`, 'category', 'writer'],
-        singleTypes: ['global', 'homepage']
+        collectionTypes: ['page', 'article', 'category', 'writer'],
+        singleTypes: ['global']
       },
     },
     `gatsby-plugin-fontawesome-css`,
