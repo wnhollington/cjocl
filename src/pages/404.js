@@ -1,12 +1,25 @@
 import * as React from "react"
+import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout/layout"
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout title="404: Page Not Found">
     <div className="container text-center my-5">
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <div className="row">
+        <div className="col my-auto">
+          <h1>404: Page Not Found</h1>
+          <p>Oops!  It looks like the page you are looking for is lost in space.  Please click the link below to go Home.</p>
+          <Link to="/" className="btn btn-primary">Home</Link>
+        </div>
+        <div className="col">
+          <StaticImage 
+            src="../images/404.png"
+            width={500}
+          />
+        </div>
+      </div>
     </div>
 
   </Layout>
