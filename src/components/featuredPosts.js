@@ -42,7 +42,7 @@ const FeaturedPosts = () => {
   return (
     <>
       {/* Main Featured Post */}
-      <div class="p-4 p-md-5 mb-2 text-white rounded bg-dark" style={{background: `url("${featuredPost.node.image.url}") no-repeat center center fixed`}}>
+      <div class="p-4 p-md-5 mb-2 text-white rounded bg-dark" style={{background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("${featuredPost.node.image.url}") no-repeat center center fixed`}}>
         <div class="col-md-6 px-0">
           <h1 class="display-4 fst-italic">{featuredPost.node.title}</h1>
           <p class="lead my-3">{featuredPost.node.description}</p>
