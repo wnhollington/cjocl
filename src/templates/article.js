@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import ReactMarkdown from "react-markdown"
+import footnotes from "remark-footnotes"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -69,7 +70,11 @@ const Article = ({ data, pageContext }) => {
             </figure>
 
             {/* Article Content */}
-            <ReactMarkdown children={content} className="mb-5"/>
+            <ReactMarkdown
+              remarkPlugins={[footnotes]}
+              children={content}
+              className="mb-5"
+            />
 
             {/* Social Share */}
             <SocialShare url={`www.test.com/${category.slug}/${slug}`} title={title} description={description}/>

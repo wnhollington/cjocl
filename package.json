@@ -31,6 +31,7 @@
     "react-helmet": "^6.1.0",
     "react-markdown": "^8.0.0",
     "react-share": "^4.4.0",
+    "remark-footnotes": "^4.0.1",
     "sass": "1.45.2"
   },
   "devDependencies": {
