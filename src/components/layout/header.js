@@ -49,7 +49,7 @@ const Header = ({ siteTitle }) => {
       <div class="nav-scroller py-1 mb-2 d-none">
         <nav class="nav d-flex justify-content-between">
           {categories.map(({ node }) => {
-            return <ExactNavLink to={`/${node.slug}`}>{node.name}</ExactNavLink>
+            return <ExactNavLink to={`/${node.slug}`} key={node.name}>{node.name}</ExactNavLink>
           })}
         </nav>
       </div>

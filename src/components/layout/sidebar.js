@@ -25,7 +25,7 @@ const Sidebar = ({ aboutSection="This text should change depending on whether so
           <h4 class="fst-italic">Archives</h4>
           <ol class="list-unstyled mb-0">
             {categories.map(({ node }) => {
-              return <li className='mt-1'><Link to={`/${node.slug}`}>{node.name}</Link></li>
+              return <li className='mt-1' key={node.name}><Link to={`/${node.slug}`}>{node.name}</Link></li>
             })}
           </ol>
         </div>

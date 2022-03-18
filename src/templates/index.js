@@ -64,7 +64,7 @@ const Index = ({ data, pageContext }) => {
             const categorySlug = node.category.slug
 
             return (
-              <article class="blog-post border-bottom shadow-sm p-2">
+              <article class="blog-post border-bottom shadow-sm p-2" key={title}>
                 <h2 class="blog-post-title"><Link to={`/${categorySlug}/${slug}`}>{title}</Link></h2>
                 <p class="blog-post-meta">{date} by <Link to={`/${author.slug}`}>{author.name}</Link></p>
                 <p>{description}</p>
