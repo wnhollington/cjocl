@@ -12,7 +12,7 @@ const ExactNavLink = props => (
 )
 
 // Render
-const NavFooter = props => {
+const NavFooter = () => {
   const data = useStaticQuery(graphql`
     query Pages {
       allStrapiPage(filter: {slug: {in: ["disclaimer", "privacy-policy"]}}) {

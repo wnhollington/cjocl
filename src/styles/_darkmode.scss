@@ -1,0 +1,43 @@
+.toggle-theme:hover {
+  cursor: pointer;
+}
+
+body.dark {
+  background-color: $dark-primary;
+  color: $dark-secondary;
+
+  a, a.blog-header-logo, p.text-muted, .blog-post-meta {
+    color: $dark-secondary!important;
+  }
+
+  .position-sticky .p-4, .blog-footer {
+    background-color: $dark-primary !important;
+  }
+
+  .btn.btn-outline-primary{
+    border: none !important;
+  }
+
+  .blog-article-pagination {
+    border-top: 1px solid $dark-secondary;
+  }
+
+  a.link-secondary {
+    text-decoration: none;
+  }
+  a.link-secondary.active, a.link-secondary:hover {
+    text-decoration: underline;
+  }
+
+  .modal-header {
+    color: black;
+  }
+
+  .to-top {
+    background-color: $dark-secondary;
+    svg {
+      color: $dark-primary;
+    }
+  }
+  
+}

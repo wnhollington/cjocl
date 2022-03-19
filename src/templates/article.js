@@ -34,7 +34,7 @@ const Article = ({ data, pageContext }) => {
           className="rounded"
         />
       </div>
-      <h4 className='fst-italic py-2'>{author.name}</h4>
+      <h4 className='fst-italic py-2 text-center'>{author.name}</h4>
       <div className='social-icons'>
           <Link to={`/${author.slug}`}  className="btn btn-sm btn-outline-primary mx-1">
               <FontAwesomeIcon icon={faLink} size="2x"/>
