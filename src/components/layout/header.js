@@ -4,9 +4,11 @@ import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRss, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 // Hooks
 import { useSiteCategories } from "../../hooks/use-site-categories"
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 // Components
 import SignupModal from "../signup/signupModal"
@@ -23,6 +25,8 @@ const ExactNavLink = props => (
 // Render
 const Header = ({ siteTitle }) => {
   const categories = useSiteCategories();
+  const siteMetaData = useSiteMetadata();
+  const favicon = siteMetaData.favicon.localFile.childImageSharp.gatsbyImageData;
 
   return (
     <div class="container">
@@ -37,7 +41,12 @@ const Header = ({ siteTitle }) => {
           <SignupModal />
           
           <div class="col-4 text-center">
-            <Link to="/" className="blog-header-logo text-dark" href="#">{siteTitle}</Link>
+            <Link to="/" className="blog-header-logo text-dark" href="#">
+              <GatsbyImage 
+                image={favicon}
+                alt={siteTitle} 
+              />
+            </Link>
           </div>
           
           <div class="col-4 d-flex justify-content-end align-items-center">
