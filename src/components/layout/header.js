@@ -34,12 +34,14 @@ const Header = ({ siteTitle }) => {
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           
+          {/* Lefter */}
           <div class="col-4 pt-1">
             <Link to="#" className="badge bg-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Subcribe</Link>
           </div>
 
           <SignupModal />
           
+          {/* Center */}
           <div class="col-4 text-center">
             <Link to="/" className="blog-header-logo text-dark" href="#">
               <GatsbyImage 
@@ -49,10 +51,12 @@ const Header = ({ siteTitle }) => {
             </Link>
           </div>
           
+          {/* Right */}
           <div class="col-4 d-flex justify-content-end align-items-center">
-          <audio id="audio" src="https://res.cloudinary.com/wnhollington/video/upload/v1647652546/mouseClick.mp3"></audio>
+
             <ThemeToggler>
                 {({ theme, toggleTheme }) => (
+                  
                     <div className="toggle-theme px-3">
                         <FontAwesomeIcon 
                             icon={theme === "dark" ? faSun : faMoon }
@@ -64,6 +68,7 @@ const Header = ({ siteTitle }) => {
                               }
                             }
                         />
+                        <audio id="audio" src="https://res.cloudinary.com/wnhollington/video/upload/v1647652546/mouseClick.mp3"></audio>
                     </div>
                 )}
             </ThemeToggler>
@@ -73,6 +78,7 @@ const Header = ({ siteTitle }) => {
         </div>
       </header>
 
+      {/* Navbar - Categories */}
       <div class="nav-scroller py-1 mb-2 d-none">
         <nav class="nav d-flex justify-content-between">
           {categories.map(({ node }) => {
