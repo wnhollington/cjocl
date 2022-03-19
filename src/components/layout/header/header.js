@@ -2,17 +2,17 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRss, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import { faRss } from '@fortawesome/free-solid-svg-icons'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 // Hooks
-import { useSiteCategories } from "../../hooks/use-site-categories"
-import { useSiteMetadata } from "../../hooks/use-site-metadata"
+import { useSiteCategories } from "../../../hooks/use-site-categories"
+import { useSiteMetadata } from "../../../hooks/use-site-metadata"
 
 // Components
-import SignupModal from "../signup/signupModal"
-import Nav from "./navigation/nav"
+import SignupModal from "../../signup/signupModal"
+import Nav from "../../layout/navigation/nav"
+import DarkmodeToggle from "./darkmodeToggle"
 
 // Render
 const Header = ({ siteTitle }) => {
@@ -45,25 +45,7 @@ const Header = ({ siteTitle }) => {
           
           {/* Right */}
           <div class="col-4 d-flex justify-content-end align-items-center">
-
-            <ThemeToggler>
-                {({ theme, toggleTheme }) => (
-                  
-                    <div className="toggle-theme px-3">
-                        <FontAwesomeIcon 
-                            icon={theme === "dark" ? faSun : faMoon }
-                            onClick={
-                              () => {
-                                theme === "dark" ? toggleTheme("light") : toggleTheme("dark")
-                                var audio = document.getElementById("audio");
-                                audio.play();
-                              }
-                            }
-                        />
-                        <audio id="audio" src="https://res.cloudinary.com/wnhollington/video/upload/v1647652546/mouseClick.mp3"></audio>
-                    </div>
-                )}
-            </ThemeToggler>
+            <DarkmodeToggle />
             <Link to="/rss.xml" className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faRss} size="1x" /></Link>
           </div>
 

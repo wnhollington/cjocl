@@ -4,7 +4,7 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 // Components
 import Seo from "./seo"
-import Header from "./header"
+import Header from "./header/header"
 import Footer from "./footer"
 
 // Styles
