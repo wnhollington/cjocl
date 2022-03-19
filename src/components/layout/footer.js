@@ -8,7 +8,7 @@ import NavFooter from "./navigation/navFooter"
 
 const Footer = () => {
   return (
-    <footer class="blog-footer bg-light">
+    <footer class="blog-footer">
       <NavFooter />
       <Link to="#" class="to-top btn btn-primary"><FontAwesomeIcon icon={faUpLong} size="1x" /></Link>
     </footer>

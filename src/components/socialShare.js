@@ -13,15 +13,15 @@ const SocialShare = ({ url, title, description }) => (
     <p>If you found this article helpful please share:</p>
     
     <FacebookShareButton url={url} quote={description}>
-        <FacebookIcon size={40} round={true} bgStyle={{fill: "#0F044C"}}/>
+        <FacebookIcon size={40} round={true} bgStyle={{fill: "#1c0a7e"}}/>
     </FacebookShareButton>
 
     <LinkedinShareButton url={url} title={title} summary={description}>
-        <LinkedinIcon size={40} round={true} bgStyle={{fill: "#0F044C"}}/>
+        <LinkedinIcon size={40} round={true} bgStyle={{fill: "#1c0a7e"}}/>
     </LinkedinShareButton>
 
     <TwitterShareButton url={url} title={description}>
-        <TwitterIcon size={40} round={true} bgStyle={{fill: "#0F044C"}}/>
+        <TwitterIcon size={40} round={true} bgStyle={{fill: "#1c0a7e"}}/>
     </TwitterShareButton>
 
   </div>

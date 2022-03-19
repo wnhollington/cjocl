@@ -48,6 +48,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    'gatsby-plugin-dark-mode',
     {
       resolve: `gatsby-source-strapi`,
       options: {

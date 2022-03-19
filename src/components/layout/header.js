@@ -2,7 +2,8 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRss } from '@fortawesome/free-solid-svg-icons'
+import { faRss, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 // Hooks
 import { useSiteCategories } from "../../hooks/use-site-categories"
@@ -40,6 +41,23 @@ const Header = ({ siteTitle }) => {
           </div>
           
           <div class="col-4 d-flex justify-content-end align-items-center">
+          <audio id="audio" src="https://res.cloudinary.com/wnhollington/video/upload/v1647652546/mouseClick.mp3"></audio>
+            <ThemeToggler>
+                {({ theme, toggleTheme }) => (
+                    <div className="toggle-theme px-3">
+                        <FontAwesomeIcon 
+                            icon={theme === "dark" ? faSun : faMoon }
+                            onClick={
+                              () => {
+                                theme === "dark" ? toggleTheme("light") : toggleTheme("dark")
+                                var audio = document.getElementById("audio");
+                                audio.play();
+                              }
+                            }
+                        />
+                    </div>
+                )}
+            </ThemeToggler>
             <Link to="/rss.xml" className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faRss} size="1x" /></Link>
           </div>
 

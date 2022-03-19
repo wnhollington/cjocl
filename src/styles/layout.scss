@@ -1,8 +1,11 @@
 //Here you can customize bootstrap
 
 // Variables
-$primary: #0F044C;
+$primary: #1c0a7e;
 $secondary: #787A91;
+
+$dark-primary: #050311;
+$dark-secondary: #e5e5e5;
 
 // Imports
 @import "~bootstrap/scss/bootstrap";
@@ -27,3 +30,4 @@ $secondary: #787A91;
 @import "cards";
 @import "social";
 @import "footer";
+@import "darkmode";
