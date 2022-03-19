@@ -8,7 +8,7 @@ import Sidebar from '../components/layout/sidebar'
 
 // Render
 const Category = ({ pageContext, data }) => {
-  const { categoryName, categoryDescription, categorySlug, numPagesPerCategory, currentPage } = pageContext
+  const { categoryTitle, categoryDescription, categorySlug, numPagesPerCategory, currentPage } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPagesPerCategory
   const prevPage = currentPage - 1 === 1 ? `/${categorySlug}` : `/${categorySlug}/${(currentPage - 1).toString()}`
@@ -17,7 +17,7 @@ const Category = ({ pageContext, data }) => {
   
   const aboutSection = (
     <>
-      <h4 className='fst-italic'>Articles about {categoryName}</h4>
+      <h4 className='fst-italic'>Articles about {categoryTitle}</h4>
       <p className="mb-0">{categoryDescription}</p>
     </>
   )
@@ -43,7 +43,7 @@ const Category = ({ pageContext, data }) => {
   )
 
   return (
-    <Layout title={categoryName} description={categoryDescription}> 
+    <Layout title={categoryTitle} description={categoryDescription}> 
       <div className="row g-5">
         <div className="col-md-8">
           {articles.map(article => {

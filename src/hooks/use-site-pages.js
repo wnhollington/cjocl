@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-export const useSiteCategories = () => {
+export const useSitePages = () => {
   const { allStrapiPage } = useStaticQuery(
     graphql`
       query Pages {

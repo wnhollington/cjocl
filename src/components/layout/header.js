@@ -12,15 +12,7 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 // Components
 import SignupModal from "../signup/signupModal"
-
-// Constants
-const isActive = ({ isCurrent }) => {
-  return isCurrent ? { className: "p-2 link-secondary active" } : {className: "p-2 link-secondary"}
-}
-
-const ExactNavLink = props => (
-  <Link getProps={isActive} {...props} />
-)
+import Nav from "./navigation/nav"
 
 // Render
 const Header = ({ siteTitle }) => {
@@ -79,12 +71,8 @@ const Header = ({ siteTitle }) => {
       </header>
 
       {/* Navbar - Categories */}
-      <div class="nav-scroller py-1 mb-2 d-none">
-        <nav class="nav d-flex justify-content-between">
-          {categories.map(({ node }) => {
-            return <ExactNavLink to={`/${node.slug}`} key={node.name}>{node.name}</ExactNavLink>
-          })}
-        </nav>
+      <div className="nav-scroller py-1 mb-2 d-none">
+        <Nav edges={categories}/>
       </div>
 
     </div>

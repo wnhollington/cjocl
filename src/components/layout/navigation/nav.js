@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
 // Constants
@@ -12,31 +11,14 @@ const ExactNavLink = props => (
 )
 
 // Render
-const NavFooter = () => {
-  const data = useStaticQuery(graphql`
-    query Pages {
-      allStrapiPage(filter: {slug: {in: ["disclaimer", "privacy-policy"]}}) {
-        edges {
-          node {
-            slug
-            title
-          }
-        }
-      }
-    }
-  `)
-  const pages = data.allStrapiPage.edges
-
+const Nav = ({edges}) => {
   return (
-    <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-center">
-        {pages.map(({ node }) => {
+        {edges.map(({ node }) => {
           return <ExactNavLink to={`/${node.slug}`} key={node.title}>{node.title}</ExactNavLink>
         })}
       </nav>
-    </div>
-
   )
 }
 
-export default NavFooter
+export default Nav

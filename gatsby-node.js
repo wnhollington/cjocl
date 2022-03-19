@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
           allStrapiCategory(limit: $limit) {
             edges {
               node {
-                name
+                title
                 slug
                 description
                 articles {
@@ -97,7 +97,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Create Category Pages and Pagination
         const categories = result.data.allStrapiCategory.edges
         categories.forEach(category => {
-          const categoryName = category.node.name
+          const categoryTitle = category.node.title
           const categorySlug = category.node.slug
           const categoryDescription = category.node.description
           const categoryPosts = category.node.articles
@@ -111,7 +111,7 @@ exports.createPages = ({ graphql, actions }) => {
                       skip: i * postsPerPage,
                       currentPage: i + 1,
                       numPagesPerCategory,
-                      categoryName,
+                      categoryTitle,
                       categorySlug,
                       categoryDescription
                   }
