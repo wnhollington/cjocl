@@ -1,6 +1,8 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
+
+// Hooks
+import { useSitePages } from "../../../hooks/use-site-pages"
 
 // Constants
 const isActive = ({ isCurrent }) => {
@@ -13,20 +15,7 @@ const ExactNavLink = props => (
 
 // Render
 const NavFooter = () => {
-  const data = useStaticQuery(graphql`
-    query Pages {
-      allStrapiPage(filter: {slug: {in: ["disclaimer", "privacy-policy"]}}) {
-        edges {
-          node {
-            slug
-            title
-          }
-        }
-      }
-    }
-  `)
-  const pages = data.allStrapiPage.edges
-
+  const pages = useSitePages();
   return (
     <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-center">
