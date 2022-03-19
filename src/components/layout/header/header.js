@@ -18,7 +18,10 @@ import DarkmodeToggle from "./darkmodeToggle"
 const Header = ({ siteTitle }) => {
   const categories = useSiteCategories();
   const siteMetaData = useSiteMetadata();
-  const favicon = siteMetaData.favicon.localFile.childImageSharp.gatsbyImageData;
+  const logoLight = siteMetaData.favicon[0].localFile.childImageSharp.gatsbyImageData;
+  const logoDark = siteMetaData.favicon[1].localFile.childImageSharp.gatsbyImageData;
+  const theme = document.querySelector('body');
+  let logo = theme.classList.contains('dark') ? logoLight : logoDark;
 
   return (
     <div class="container">
@@ -37,7 +40,7 @@ const Header = ({ siteTitle }) => {
           <div class="col-4 text-center">
             <Link to="/" className="blog-header-logo text-dark" href="#">
               <GatsbyImage 
-                image={favicon}
+                image={logo}
                 alt={siteTitle} 
               />
             </Link>
