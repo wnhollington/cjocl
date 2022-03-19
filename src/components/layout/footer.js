@@ -7,13 +7,15 @@ import { faUpLong } from '@fortawesome/free-solid-svg-icons'
 import { useSitePages } from "../../hooks/use-site-pages"
 
 // Components
-import NavFooter from "./navigation/navFooter"
+import Nav from "./navigation/nav"
 
 const Footer = () => {
   const pages = useSitePages();
   return (
     <footer class="blog-footer">
-      <NavFooter edges={pages} />
+      <div className="nav-scroller py-1 mb-2">
+        <Nav edges={pages}/>
+      </div>
       <Link to="#" class="to-top btn btn-primary"><FontAwesomeIcon icon={faUpLong} size="1x" /></Link>
     </footer>
   )

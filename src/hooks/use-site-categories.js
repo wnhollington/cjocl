@@ -7,7 +7,7 @@ export const useSiteCategories = () => {
         allStrapiCategory {
           edges {
             node {
-              name
+              title
               slug
             }
           }
