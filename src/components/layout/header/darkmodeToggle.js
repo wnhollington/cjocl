@@ -9,7 +9,6 @@ const DarkmodeToggle = ({state, setState}) => {
       {({ theme, toggleTheme }) => (
           <div className="toggle-theme px-3">
               <FontAwesomeIcon
-                  id="test"
                   icon={theme === "dark" ? faSun : faMoon }
                   onClick={
                     () => {
@@ -21,7 +20,6 @@ const DarkmodeToggle = ({state, setState}) => {
                     }
                   }
               />
-             
           </div>
       )}
     </ThemeToggler>
