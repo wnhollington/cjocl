@@ -50,7 +50,7 @@ const Header = ({ siteTitle }) => {
           
           {/* Right */}
           <div class="col-4 d-flex justify-content-end align-items-center">
-            <DarkmodeToggle />
+            <DarkmodeToggle state={state} setState={setState}/>
             <Link to="/rss.xml" className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faRss} size="1x" /></Link>
           </div>
 
