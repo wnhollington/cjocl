@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,12 +16,14 @@ import DarkmodeToggle from "./darkmodeToggle"
 
 // Render
 const Header = ({ siteTitle }) => {
+  const [state, setState] = useState({
+    dark: document.querySelector('body').classList.contains('dark') ? true : false
+  })
+
   const categories = useSiteCategories();
   const siteMetaData = useSiteMetadata();
   const logoLight = siteMetaData.favicon[0].localFile.childImageSharp.gatsbyImageData;
   const logoDark = siteMetaData.favicon[1].localFile.childImageSharp.gatsbyImageData;
-  const theme = document.querySelector('body');
-  let logo = theme.classList.contains('dark') ? logoLight : logoDark;
 
   return (
     <div class="container">
@@ -40,7 +42,7 @@ const Header = ({ siteTitle }) => {
           <div class="col-4 text-center">
             <Link to="/" className="blog-header-logo text-dark" href="#">
               <GatsbyImage 
-                image={logo}
+                image={state.dark === true ? logoLight : logoDark}
                 alt={siteTitle} 
               />
             </Link>
@@ -48,7 +50,7 @@ const Header = ({ siteTitle }) => {
           
           {/* Right */}
           <div class="col-4 d-flex justify-content-end align-items-center">
-            <DarkmodeToggle />
+            <DarkmodeToggle state={state} setState={setState}/>
             <Link to="/rss.xml" className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faRss} size="1x" /></Link>
           </div>
 

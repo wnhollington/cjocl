@@ -3,22 +3,25 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
-const DarkmodeToggle = () => {
+const DarkmodeToggle = ({state, setState}) => {
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
           <div className="toggle-theme px-3">
-              <FontAwesomeIcon 
+              <FontAwesomeIcon
+                  id="test"
                   icon={theme === "dark" ? faSun : faMoon }
                   onClick={
                     () => {
                       theme === "dark" ? toggleTheme("light") : toggleTheme("dark")
-                      var audio = document.getElementById("audio");
-                      audio.play();
+                      setState({
+                        ...state,
+                        dark: !state.dark,
+                      })
                     }
                   }
               />
-              <audio id="audio" src="https://res.cloudinary.com/wnhollington/video/upload/v1647652546/mouseClick.mp3"></audio>
+             
           </div>
       )}
     </ThemeToggler>
