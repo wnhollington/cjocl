@@ -17,11 +17,11 @@ import DarkmodeToggle from "./darkmodeToggle"
 // Render
 const Header = ({ siteTitle }) => {
   const [state, setState] = useState({
-    dark: null
+    dark: false
   })
 
   if (typeof window !== "undefined") {
-    document.querySelector('body').classList.contains('dark') ? state.dark = true : state.dark = false
+    window.localStorage.theme === 'dark' ? state.dark = true : state.dark = false
   }
 
   const categories = useSiteCategories();
