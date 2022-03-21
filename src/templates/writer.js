@@ -52,7 +52,7 @@ const Writer = ({ data, pageContext }) => {
                     className="rounded mb-2"
                   />
                 </div>
-                <h4 className='fst-italic'>{name}</h4>
+                <h4 className='fst-italic text-center'>{name}</h4>
                 <div className='social-icons'>
                     <a href={`mailto:${email}`} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-primary mx-1">
                         <FontAwesomeIcon icon={faEnvelope} size="2x"/>
