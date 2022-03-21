@@ -11,7 +11,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 // Components
 import Layout from '../components/layout/layout'
 import Sidebar from '../components/layout/sidebar'
-import SocialShare from '../components/socialShare'
+import SocialShare from '../components/article/socialShare'
 
 // Render
 const Article = ({ data, pageContext }) => {
