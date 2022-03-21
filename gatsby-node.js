@@ -45,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
                 name
                 email
                 slug
+                linkedin
                 description
                 articles {
                   id
