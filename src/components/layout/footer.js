@@ -19,7 +19,11 @@ const Footer = () => {
       <Link to="#" class="to-top btn btn-primary">
         <FontAwesomeIcon 
           icon={faUpLong} size="1x"
-          onClick={window.scroll({top: 0, left: 0, behavior: 'smooth'})}
+          onClick={
+            function() {
+              window.scroll({top: 0, left: 0, behavior: 'smooth'})
+            }
+        }
         />
       </Link>
     </footer>

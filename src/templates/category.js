@@ -43,7 +43,13 @@ const Category = ({ pageContext, data }) => {
   )
 
   return (
-    <Layout title={categoryTitle} description={categoryDescription}> 
+    <Layout title={categoryTitle} description={categoryDescription}>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><Link to="/">Home</Link></li>
+          <li class="breadcrumb-item active" aria-current="page">{categoryTitle}</li>
+        </ol>
+      </nav>
       <div className="row g-5">
         <div className="col-md-8">
           {articles.map(article => {

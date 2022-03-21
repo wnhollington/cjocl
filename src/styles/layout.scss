@@ -21,6 +21,9 @@ $dark-secondary: #e5e5e5;
   color: whitesmoke;
 }
 
+a:hover, a:focus {
+  text-decoration: underline !important;
+}
 // Custom Styles
 @import "header";
 @import "pagination";

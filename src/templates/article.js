@@ -51,6 +51,13 @@ const Article = ({ data, pageContext }) => {
 
   return (
     <Layout title={title} description={description}>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><Link to="/">Home</Link></li>
+          <li class="breadcrumb-item"><Link to={`/${category.slug}`}>{category.name}</Link></li>
+          <li class="breadcrumb-item active" aria-current="page">{title}</li>
+        </ol>
+      </nav>
 
       {/* Header */}
       <header className='mb-4'>

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 
 // Components
@@ -14,6 +14,12 @@ const Page = props => {
 
   return (
     <Layout title={title}>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><Link to="/">Home</Link></li>
+          <li class="breadcrumb-item active" aria-current="page">{title}</li>
+        </ol>
+      </nav>
       {/* Header */}
       <div className='mb-4'>
         <h1 className="fw-bolder mb-1">{title}</h1>
