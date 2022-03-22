@@ -6,7 +6,6 @@ const pageQuery = `{
   pages: allStrapiArticle {
     edges {
       node {
-        id
         slug
         title
         description
@@ -15,12 +14,11 @@ const pageQuery = `{
   }
 }`
 
-function pageToAlgoliaRecord({ node: { id, slug, title, description } }) {
+function pageToAlgoliaRecord({ node: { slug, title, description } }) {
   return {
-    objectID: id,
-    ...slug,
-    ...title,
-    ...description,
+    objectID: title,
+    slug,
+    description,
   }
 }
 
