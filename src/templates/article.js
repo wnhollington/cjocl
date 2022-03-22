@@ -123,7 +123,7 @@ export const query = graphql`
   query article($slug: String) {
     strapiArticle(slug: {eq: $slug}) {
       title
-      createdAt(formatString: "DD MMMM, YYYY")
+      createdAt(formatString: "MMMM DD, YYYY")
       description
       content
       image {

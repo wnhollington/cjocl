@@ -32,7 +32,7 @@ const Sidebar = ({ aboutSection="This text should change depending on whether so
 
         <div className="p-4">
           <h4 className="fst-italic">Subscribe</h4>
-          <p>Tired of coming to us? We'll come to you. Enter your email address to receive notification of new posts by email.</p>
+          <p>Tired of coming to us? No worries! We're happy come to you. Simply enter your email address to receive notification of new posts by email.</p>
           <button className="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Subcribe</button>
         </div>
 

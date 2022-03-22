@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -67,11 +68,11 @@ const Writer = ({ data, pageContext }) => {
         </div>
 
         {/* Author Bio */}
-        <div className="col-md-8">
+        <div className="col-md-8 pt-3">
           <h1 class="d-none">{name}</h1>
-          <p>
-            {description}
-          </p>
+          <ReactMarkdown 
+            children={description}
+          />
           <div class="mt-4">
             <h2>Recent Articles</h2>
               {articles.map(article => {
@@ -111,7 +112,7 @@ export const query = graphql`
           title
           slug
           description
-          createdAt(formatString: "DD MMMM, YYYY")
+          createdAt(formatString: "MMMM DD, YYYY")
           image {
             localFile {
               childImageSharp {

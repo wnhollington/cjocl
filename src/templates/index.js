@@ -105,7 +105,7 @@ export const query = graphql`
         node {
           description
           title
-          createdAt(formatString: "DD MMMM, YYYY")
+          createdAt(formatString: "MMMM DD, YYYY")
           category {
             name
             slug
