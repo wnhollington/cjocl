@@ -1,5 +1,3 @@
-const escapeStringRegexp = require("escape-string-regexp")
-
 const indexName = `Pages`
 
 const pageQuery = `{
