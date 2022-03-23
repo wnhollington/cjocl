@@ -7,16 +7,21 @@ const pageQuery = `{
         slug
         title
         description
+        category {
+          slug
+        }
       }
     }
   }
 }`
 
-function pageToAlgoliaRecord({ node: { slug, title, description } }) {
+function pageToAlgoliaRecord({ node: { slug, title, description, category } }) {
   return {
     objectID: title,
+    title,
     slug,
     description,
+    category
   }
 }
 

@@ -23,27 +23,25 @@ export default function Search({ indices }) {
   return (
       <div class="modal fade" id="staticSearch" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticSearchLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              <h5 class="modal-title text-center mb-2" id="staticSearchLabel">Search</h5>
-            </div>
-            <div class="modal-body">
+          <div class="modal-content" ref={rootRef}>
               {/* Search */}
-              <div ref={rootRef}>
-                <InstantSearch
-                  searchClient={searchClient}
-                  indexName={indices[0].name}
-                  onSearchStateChange={({ query }) => setQuery(query)}
-                >
+              <InstantSearch
+                searchClient={searchClient}
+                indexName={indices[0].name}
+                onSearchStateChange={({ query }) => setQuery(query)}
+              >
+                <div className="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
+                </div>
+
+                <div className="modal-body">
                   <SearchResult
                     show={query && query.length > 0 && hasFocus}
                     indices={indices}
                   />
-                </InstantSearch>
-              </div>
-            </div>
+                </div>
+              </InstantSearch>
           </div>
         </div>
       </div>
