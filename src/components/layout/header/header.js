@@ -13,8 +13,6 @@ import { useSiteMetadata } from "../../../hooks/use-site-metadata"
 import SignupModal from "../../signup/signupModal"
 import Nav from "../../layout/navigation/nav"
 import DarkmodeToggle from "./darkmodeToggle"
-import Search from "../../search"
-const searchIndices = [{ name: `Pages`, title: `Pages` }]
 
 // Render
 const Header = ({ siteTitle }) => {
@@ -55,10 +53,9 @@ const Header = ({ siteTitle }) => {
           
           {/* Right */}
           <div class="col-4 d-flex justify-content-end align-items-center">
-            <Link class="link-secondary" href="#" aria-label="Search" className="SearchIcon" data-bs-toggle="modal" data-bs-target="#staticSearch">
+            <Link class="link-secondary" to="/search">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
             </Link>
-            <Search indices={searchIndices} />
             <DarkmodeToggle state={state} setState={setState}/>
             <Link to="/rss.xml" className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faRss} size="1x" /></Link>
           </div>

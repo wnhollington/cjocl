@@ -6,7 +6,6 @@ import {
   Hits,
   Index,
   Snippet,
-  PoweredBy,
 } from "react-instantsearch-dom"
 
 const HitCount = connectStateResults(({ searchResults }) => {
@@ -20,14 +19,14 @@ const HitCount = connectStateResults(({ searchResults }) => {
 })
 
 const PageHit = ({ hit }) => (
-  <div>
-    <Link to={`/${hit.category.slug}/${hit.slug}`}>
+  <article>
+    <Link to={`/${hit.category.slug}/${hit.slug}`} >
       <h4>
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h4>
     </Link>
     <Snippet attribute="description" hit={hit} tagName="mark" />
-  </div>
+  </article>
 )
 
 const HitsInIndex = ({ index }) => (
@@ -42,7 +41,6 @@ const SearchResult = ({ indices, className }) => (
     {indices.map(index => (
       <HitsInIndex index={index} key={index.name} />
     ))}
-    <PoweredBy />
   </div>
 )
 
