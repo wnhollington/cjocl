@@ -20,10 +20,13 @@
   }
 
   .ais-Hits .ais-Hits-list {
-    margin: 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
     list-style: none;
+    grid-auto-columns: 18em;
+    padding: 1em;
+    grid-column: 2 / -2;
+    grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
+    gap: 1.5em;
+    display: grid;
     li {
       margin: 1rem;
       padding: 1rem;

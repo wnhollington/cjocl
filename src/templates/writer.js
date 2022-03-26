@@ -75,18 +75,20 @@ const Writer = ({ data, pageContext }) => {
           />
           <div class="mt-4">
             <h2>Recent Articles</h2>
+            <div className="grid-cards">
               {articles.map(article => {
                 const title = article.node.title
                 const slug = article.node.slug
                 const date = article.node.createdAt
                 const category = article.node.category
                 return (
-                  <article class="blog-post p-1 m-0">
+                  <article class="blog-post p-3 m-0">
                     <h4 class="blog-post-title"><Link to={`/${category.slug}/${slug}`}>{title}</Link></h4>
                     <p className="blog-post-meta">{date}</p>
                   </article>
                 )
               })}
+            </div>
             {/* Pagination - Navigation*/}
             {numPagesPerWriter > 1 ? nav : null}
           </div>
