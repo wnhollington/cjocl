@@ -17,20 +17,18 @@ export default function Search({ indices }) {
   )
 
   return (
-      <>
-        <InstantSearch
-          searchClient={searchClient}
-          indexName={indices[0].name}
-          onSearchStateChange={({ query }) => setQuery(query)}
-        >
-            <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
-          
-            <SearchResult
-              show={query && query.length > 0 && hasFocus}
-              indices={indices}
-              className="search-results"
-            />
-        </InstantSearch>
-      </>
+    <InstantSearch
+      searchClient={searchClient}
+      indexName={indices[0].name}
+      onSearchStateChange={({ query }) => setQuery(query)}
+    >
+        <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
+      
+        <SearchResult
+          show={query && query.length > 0 && hasFocus}
+          indices={indices}
+          className="search-results"
+        />
+    </InstantSearch>
   )
 }

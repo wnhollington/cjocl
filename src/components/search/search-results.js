@@ -4,6 +4,8 @@ import {
   connectStateResults,
   Highlight,
   Hits,
+  HitsPerPage,
+  Pagination,
   Index,
   Snippet,
 } from "react-instantsearch-dom"
@@ -31,8 +33,26 @@ const PageHit = ({ hit }) => (
 
 const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>
-    <HitCount />
+    <div className="hits-menu d-flex">
+      <HitCount />
+      <HitsPerPage
+        defaultRefinement={4}
+        items={[
+          { value: 5, label: '5' },
+          { value: 10, label: '10' },
+          { value: 15, label: '15' },
+        ]}
+      />
+    </div>
     <Hits className="Hits" hitComponent={PageHit} />
+    <Pagination
+        showFirst={true}
+        showLast={true}
+        showPrevious={true}
+        showNext={true}
+        padding={2}
+        totalPages={3}
+      />
   </Index>
 )
 

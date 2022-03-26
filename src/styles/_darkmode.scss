@@ -40,4 +40,14 @@ body.dark {
     }
   }
   
+  .search-results {
+    .ais-Hits .ais-Hits-list {
+      li {
+        color: black;
+      }
+      article a h4 {
+        color: black;
+      }
+    }
+  }
 }
