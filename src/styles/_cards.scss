@@ -20,3 +20,19 @@
     }
   }
 }
+
+.grid-cards {
+  overflow: scroll;
+  grid-auto-columns: 18em;
+  padding: 1em;
+  grid-auto-flow: column;
+  grid-column: 2 / -2;
+  grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
+  gap: 1.5em;
+  display: grid;
+
+  article {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
