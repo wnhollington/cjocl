@@ -62,7 +62,7 @@ const Article = ({ data, pageContext }) => {
       {/* Header */}
       <header className='mb-4'>
         <h1 className="fw-bolder mb-1">{title}</h1>
-        <p className="text-muted fst-italic mb-2">Post on {date} by {author.name}</p>
+        <p className="text-muted mb-2">{date} | by {author.name}</p>
         <Link to={`/${category.slug}`} className="badge bg-primary">{category.name}</Link>
       </header>
 
@@ -74,6 +74,7 @@ const Article = ({ data, pageContext }) => {
             {/* Feature Image */}
             <figure className='mb-4'>
               <GatsbyImage image={img} alt={title} className="img-fluid rounded" />
+              <figcaption className="text-muted fst-italic">{description}</figcaption>
             </figure>
 
             {/* Article Content */}

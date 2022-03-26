@@ -81,10 +81,18 @@ const Writer = ({ data, pageContext }) => {
                 const slug = article.node.slug
                 const date = article.node.createdAt
                 const category = article.node.category
+                const image = article.node.image.localFile.childImageSharp.gatsbyImageData
+                const description = article.node.description
                 return (
                   <article class="blog-post p-3 m-0">
+                    <GatsbyImage
+                      image={image}
+                      alt={name}
+                      className="rounded mb-2"
+                    />
                     <h4 class="blog-post-title"><Link to={`/${category.slug}/${slug}`}>{title}</Link></h4>
                     <p className="blog-post-meta">{date}</p>
+                    <p>{description}</p>
                   </article>
                 )
               })}

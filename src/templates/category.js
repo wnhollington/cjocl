@@ -62,7 +62,7 @@ const Category = ({ pageContext, data }) => {
             return (
               <article class="blog-post border-bottom shadow-sm p-2">
                 <h2 class="blog-post-title"><Link to={`/${category.slug}/${slug}`}>{title}</Link></h2>
-                <p class="blog-post-meta">{date} by <Link to={`/${author.slug}`}>{author.name}</Link></p>
+                <p class="blog-post-meta">{date} | by <Link to={`/${author.slug}`}>{author.name}</Link></p>
                 <p>{description}</p>
               </article>
             )
