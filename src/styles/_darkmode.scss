@@ -4,9 +4,8 @@
 
 body.dark {
   background-color: $dark-primary;
-  color: $dark-secondary;
 
-  a, a.blog-header-logo, p.text-muted, .blog-post-meta {
+  a, a.blog-header-logo, p.text-muted, .blog-post-meta, h1, h2, h3, h4, p, .toggle-theme, .HitCount, .ais-Pagination-link  {
     color: $dark-secondary!important;
   }
 
@@ -41,13 +40,10 @@ body.dark {
   }
   
   .search-results {
-    .ais-Hits .ais-Hits-list {
-      li {
-        color: black;
-      }
-      article a h4 {
-        color: black;
-      }
+    .Hits {
+      h4 span {
+        color: $primary
+      };
     }
   }
 }

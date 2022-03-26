@@ -30,8 +30,12 @@
       max-width: 275px;
       border-radius: 10px;
       background-color: white;
-      article a {
-        text-decoration: none;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      h4 {
+        text-align: center;
+        a {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -41,5 +45,8 @@
     gap: 2rem;
     justify-content: center;
     list-style: none;
+  }
+  .ais-Pagination-link {
+    text-decoration: none;
   }
 }
