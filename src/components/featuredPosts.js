@@ -64,12 +64,12 @@ const FeaturedPosts = () => {
           
           return (
             <div class="col-lg-6 mb-4" key={title}>
-              <div class="cards row g-0 border rounded p-1 shadow-sm h-md-250 h-100 d-flex">
+              <div class="cards row g-0 border rounded shadow-sm h-md-250 h-100 d-flex">
                 <div class="col-auto">
                   <GatsbyImage
                     image={img}
                     alt={title}
-                    class="h-100 rounded"
+                    class="h-100 rounded-left"
                   />
                 </div>
                 <div class="col p-sm-2">

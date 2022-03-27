@@ -24,7 +24,8 @@
 .grid-cards {
   overflow: scroll;
   grid-auto-columns: 18em;
-  padding: 1em;
+  margin: .5rem;
+  padding:.5rem;
   grid-auto-flow: column;
   grid-column: 2 / -2;
   grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
@@ -32,7 +33,13 @@
   display: grid;
 
   article {
-    border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    .gatsby-image-wrapper {
+      border-radius: 5px 5px 0 0;
+    }
+    h4, p {
+      padding: 0 .25rem;
+    }
   }
 }

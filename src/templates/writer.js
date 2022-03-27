@@ -74,7 +74,7 @@ const Writer = ({ data, pageContext }) => {
             children={description}
           />
           <div class="mt-4">
-            <h2>Recent Articles</h2>
+            <h2 className="text-center">Recent Articles</h2>
             <div className="grid-cards">
               {articles.map(article => {
                 const title = article.node.title
@@ -84,15 +84,14 @@ const Writer = ({ data, pageContext }) => {
                 const image = article.node.image.localFile.childImageSharp.gatsbyImageData
                 const description = article.node.description
                 return (
-                  <article class="blog-post p-3 m-0">
+                  <article class="blog-post">
                     <GatsbyImage
                       image={image}
                       alt={name}
-                      className="rounded mb-2"
                     />
                     <h4 class="blog-post-title"><Link to={`/${category.slug}/${slug}`}>{title}</Link></h4>
                     <p className="blog-post-meta">{date}</p>
-                    <p>{description}</p>
+                    <p className="p-1">{description}</p>
                   </article>
                 )
               })}
