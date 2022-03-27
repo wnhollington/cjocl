@@ -6,6 +6,7 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout/layout'
 import Sidebar from '../components/layout/sidebar'
 import Pagination from '../components/layout/navigation/pagination'
+import Breadcrumbs from '../components/layout/navigation/breadcrumbs'
 
 // Render
 const Category = ({ pageContext, data }) => {
@@ -25,12 +26,7 @@ const Category = ({ pageContext, data }) => {
 
   return (
     <Layout title={categoryTitle} description={categoryDescription}>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-          <li class="breadcrumb-item active" aria-current="page">{categoryTitle}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs page={categoryTitle} />
       <div className="row g-5">
         <div className="col-md-8">
           {articles.map(article => {

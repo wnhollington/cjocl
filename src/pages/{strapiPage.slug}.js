@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 
 // Components
 import Layout from "../components/layout/layout"
+import Breadcrumbs from '../components/layout/navigation/breadcrumbs'
 
 const Page = props => {
   // Constants
@@ -14,12 +15,7 @@ const Page = props => {
 
   return (
     <Layout title={title}>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-          <li class="breadcrumb-item active" aria-current="page">{title}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs page={title} />
       {/* Header */}
       <div className='mb-4'>
         <h1 className="fw-bolder mb-1">{title}</h1>
