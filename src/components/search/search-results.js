@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import { default as React } from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 import {
   connectStateResults,
   Highlight,
@@ -22,7 +23,8 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <>
-    <h4><Link to={`/${hit.category.slug}/${hit.slug}`} ><Highlight attribute="title" hit={hit} tagName="mark" /></Link></h4>
+    <GatsbyImage image={hit.image.localFile.childImageSharp.gatsbyImageData}/>
+    <h4 className="pt-2"><Link to={`/${hit.category.slug}/${hit.slug}`} ><Highlight attribute="title" hit={hit} tagName="mark" /></Link></h4>
     <Snippet attribute="description" hit={hit} tagName="mark" />
   </>
 )

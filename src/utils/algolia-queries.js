@@ -10,18 +10,26 @@ const pageQuery = `{
         category {
           slug
         }
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
       }
     }
   }
 }`
 
-function pageToAlgoliaRecord({ node: { slug, title, description, category } }) {
+function pageToAlgoliaRecord({ node: { slug, title, description, category, image } }) {
   return {
     objectID: title,
     title,
     slug,
     description,
-    category
+    category,
+    image
   }
 }
 

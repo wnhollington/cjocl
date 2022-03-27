@@ -41,7 +41,7 @@ export const query = graphql`
   query Page($id: String) {
     strapiPage(id: { eq: $id }) {
       slug
-      updatedAt(formatString: "DD MMMM, YYYY")
+      updatedAt(formatString: "MMMM DD, YYYY")
       title
       content
     }
