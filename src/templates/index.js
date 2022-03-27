@@ -6,6 +6,7 @@ import { Link } from 'gatsby'
 import Layout from "../components/layout/layout"
 import FeaturedPosts from "../components/featuredPosts"
 import Sidebar from "../components/layout/sidebar"
+import Pagination from '../components/layout/navigation/pagination'
 
 // Render
 const Index = ({ data, pageContext }) => {
@@ -22,26 +23,6 @@ const Index = ({ data, pageContext }) => {
       <h4 class="fst-italic">About</h4>
       <p class="mb-0">{data.strapiGlobal.defaultSeo.metaDescription}</p>
     </>
-  )
-
-  const nav = (
-    <nav class="blog-list-pagination">
-      <Link
-        to={prevPage}
-        rel="prev"
-        className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-      >
-        Older
-      </Link>
-
-      <Link
-        to={nextPage}
-        rel="next"
-        className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-      >
-        Newer
-      </Link>
-    </nav>
   )
 
   return (
@@ -74,7 +55,7 @@ const Index = ({ data, pageContext }) => {
           })}
 
           {/* Pagination - Navigation */}
-          {numPages > 1 ? nav : null}
+          {numPages > 1 ? <Pagination isFirst={isFirst} isLast={isLast} prevPage={prevPage} nextPage={nextPage}/> : null}
 
         </div>
 

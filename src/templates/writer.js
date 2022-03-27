@@ -8,6 +8,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
 import Layout from '../components/layout/layout'
+import Pagination from '../components/layout/navigation/pagination'
 
 // Render
 const Writer = ({ data, pageContext }) => {
@@ -17,26 +18,6 @@ const Writer = ({ data, pageContext }) => {
   const prevPage = currentPage - 1 === 1 ? `/${slug}` : `/${slug}/${(currentPage - 1).toString()}`
   const nextPage = isLast ? `/${slug}/${numPagesPerWriter}` : `/${slug}/${(currentPage + 1).toString()}`
   const articles = data.allStrapiArticle.edges
-
-  const nav = (
-    <nav class="blog-pagination">
-      <Link
-        to={prevPage}
-        rel="prev"
-        className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-      >
-        Older
-      </Link>
-
-      <Link
-        to={nextPage}
-        rel="next"
-        className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-      >
-        Newer
-      </Link>
-    </nav>
-  )
 
   return (
     <Layout title={name} description={description}>
@@ -97,7 +78,7 @@ const Writer = ({ data, pageContext }) => {
               })}
             </div>
             {/* Pagination - Navigation*/}
-            {numPagesPerWriter > 1 ? nav : null}
+            {numPagesPerWriter > 1 ? <Pagination isFirst={isFirst} isLast={isLast} prevPage={prevPage} nextPage={nextPage}/> : null}
           </div>
         </div>
       </div>

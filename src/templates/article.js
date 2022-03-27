@@ -12,6 +12,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import Layout from '../components/layout/layout'
 import Sidebar from '../components/layout/sidebar'
 import SocialShare from '../components/article/socialShare'
+import PaginationPost from '../components/layout/navigation/paginationPost'
 
 // Render
 const Article = ({ data, pageContext }) => {
@@ -89,25 +90,7 @@ const Article = ({ data, pageContext }) => {
           </article>
 
           {/* Pagination */}
-          <nav class="blog-article-pagination d-flex justify-content-around" aria-label="Pagination">
-            <div className="previous-page">
-              {previous && (
-                <>
-                  <h4>Previous Article</h4>
-                  <Link to={`/${previous.category.slug}/${previous.slug}`} rel="previous">{previous.title}</Link>
-                </>
-              )}
-            </div>
-            <div className="next-page">
-              {next && (
-                <>
-                  <h4>Next Article</h4>
-                  <Link to={`/${next.category.slug}/${next.slug}`} rel="next">{next.title}</Link>
-                </>
-
-              )}
-            </div>
-          </nav>
+          <PaginationPost previous={previous} next={next} />
         </div>
 
         {/* Sidebar */}
