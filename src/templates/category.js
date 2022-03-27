@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 // Components
 import Layout from '../components/layout/layout'
 import Sidebar from '../components/layout/sidebar'
+import Pagination from '../components/layout/navigation/pagination'
 
 // Render
 const Category = ({ pageContext, data }) => {
@@ -20,26 +21,6 @@ const Category = ({ pageContext, data }) => {
       <h4 className='fst-italic'>Articles about {categoryTitle}</h4>
       <p className="mb-0">{categoryDescription}</p>
     </>
-  )
-
-  const nav = (
-    <nav class="blog-pagination">
-      <Link
-        to={prevPage}
-        rel="prev"
-        className={!isFirst ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-      >
-        Older
-      </Link>
-
-      <Link
-        to={nextPage}
-        rel="next"
-        className={!isLast ? 'btn btn-outline-primary' : 'btn btn-outline-primary disabled'}
-      >
-        Newer
-      </Link>
-    </nav>
   )
 
   return (
@@ -69,7 +50,7 @@ const Category = ({ pageContext, data }) => {
           })}
 
           {/* Pagination - Navigation*/}
-          {numPagesPerCategory > 1 ? nav : null}
+          {numPagesPerCategory > 1 ? <Pagination isFirst={isFirst} isLast={isLast} prevPage={prevPage} nextPage={nextPage}/> : null}
 
         </div>
 
