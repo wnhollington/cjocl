@@ -3,12 +3,10 @@ import { default as React } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import {
   connectStateResults,
-  Highlight,
   Hits,
   HitsPerPage,
   Pagination,
   Index,
-  Snippet,
 } from "react-instantsearch-dom"
 
 const HitCount = connectStateResults(({ searchResults }) => {
@@ -22,11 +20,11 @@ const HitCount = connectStateResults(({ searchResults }) => {
 })
 
 const PageHit = ({ hit }) => (
-  <>
+  <Link to={`/${hit.category.slug}/${hit.slug}`}>
     <GatsbyImage image={hit.image.localFile.childImageSharp.gatsbyImageData}/>
-    <h4 className="pt-2"><Link to={`/${hit.category.slug}/${hit.slug}`} ><Highlight attribute="title" hit={hit} tagName="mark" /></Link></h4>
-    <Snippet attribute="description" hit={hit} tagName="mark" />
-  </>
+    <h4 className="pt-2">{hit.title}</h4>
+    <p>{hit.description}</p>
+  </Link>
 )
 
 const HitsInIndex = ({ index }) => (
