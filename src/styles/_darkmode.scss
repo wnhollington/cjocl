@@ -5,7 +5,7 @@
 body.dark {
   background-color: $dark-primary;
 
-  a, a.blog-header-logo, p.text-muted, .blog-post-meta, h1, h2, h3, h4, p, .toggle-theme, .HitCount, .ais-Pagination-link  {
+  a, a.blog-header-logo, .blog-post-meta, h1, h2, h3, h4, p, .toggle-theme, .HitCount, .ais-Pagination-link,  {
     color: $dark-secondary!important;
   }
 
@@ -44,6 +44,11 @@ body.dark {
       h4 span {
         color: $primary
       };
+    }
+    .ais-Hits-list li a {
+      h4, p {
+        color: $dark-primary !important;
+      }
     }
   }
 }
