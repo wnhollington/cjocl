@@ -13,6 +13,7 @@ import Layout from '../components/layout/layout'
 import Sidebar from '../components/layout/sidebar'
 import SocialShare from '../components/article/socialShare'
 import PaginationPost from '../components/layout/navigation/paginationPost'
+import Breadcrumbs from '../components/layout/navigation/breadcrumbs'
 
 // Render
 const Article = ({ data, pageContext }) => {
@@ -52,13 +53,7 @@ const Article = ({ data, pageContext }) => {
 
   return (
     <Layout title={title} description={description}>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-          <li class="breadcrumb-item"><Link to={`/${category.slug}`}>{category.name}</Link></li>
-          <li class="breadcrumb-item active" aria-current="page">{title}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs category={category} page={title} />
 
       {/* Header */}
       <header className='mb-4'>
