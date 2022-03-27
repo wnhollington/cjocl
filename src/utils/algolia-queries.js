@@ -9,6 +9,7 @@ const pageQuery = `{
         description
         category {
           slug
+          name
         }
         image {
           localFile {
@@ -38,7 +39,10 @@ const queries = [
     query: pageQuery,
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
     indexName,
-    settings: { attributesToSnippet: [`description:20`] },
+    settings: { 
+      attributesToSnippet: [`description:20`],
+      attributesForFaceting: [`category.name`]
+    },
   },
 ]
 

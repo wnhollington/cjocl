@@ -17,6 +17,13 @@
 .search-results {
   .hits-menu {
     gap: 1rem;
+    align-items: center;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      margin: 0;
+    }
   }
 
   .ais-Hits .ais-Hits-list {

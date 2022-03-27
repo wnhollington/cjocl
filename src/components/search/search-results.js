@@ -7,6 +7,7 @@ import {
   HitsPerPage,
   Pagination,
   Index,
+  connectRefinementList,
 } from "react-instantsearch-dom"
 
 const HitCount = connectStateResults(({ searchResults }) => {
@@ -18,6 +19,28 @@ const HitCount = connectStateResults(({ searchResults }) => {
     </div>
   ) : null
 })
+
+const CustomRefinementList = connectRefinementList(({ items, refine, searchForItems }) => {
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item.label}>
+          <button
+            className="btn btn-primary"
+            style={{ fontWeight: item.isRefined ? 'bold' : '', display: 'flex' }}
+            onClick={event => {
+              event.preventDefault();
+              refine(item.value);
+            }}
+          >
+            {item.label} ({item.count})
+          </button>
+        </li>
+      ))}
+    </ul>
+  )
+});
+
 
 const PageHit = ({ hit }) => (
   <Link to={`/${hit.category.slug}/${hit.slug}`}>
@@ -39,6 +62,7 @@ const HitsInIndex = ({ index }) => (
           { value: 15, label: '15' },
         ]}
       />
+      <CustomRefinementList attribute="category.name" limit={1000} operator="or" />
     </div>
     <Hits className="Hits" hitComponent={PageHit} />
     <Pagination
@@ -61,3 +85,7 @@ const SearchResult = ({ indices, className }) => (
 )
 
 export default SearchResult
+
+	
+
+
