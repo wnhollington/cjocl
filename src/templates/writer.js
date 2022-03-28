@@ -7,7 +7,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
-import Layout from '../components/layout/layout'
+import Layout from '../components/layout'
 import Pagination from '../components/layout/navigation/pagination'
 
 // Render

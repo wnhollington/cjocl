@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 
 // Components
-import Layout from "../components/layout/layout"
+import Layout from "../components/layout"
 import FeaturedPosts from "../components/featuredPosts"
 import Sidebar from "../components/layout/sidebar"
 import Pagination from '../components/layout/navigation/pagination'

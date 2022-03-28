@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 
 // Components
-import Layout from "../components/layout/layout"
+import Layout from "../components/layout"
 import Breadcrumbs from '../components/layout/navigation/breadcrumbs'
 
 const Page = props => {
