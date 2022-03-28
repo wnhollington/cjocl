@@ -5,6 +5,7 @@ import {
   connectStateResults,
   Hits,
   Index,
+  Snippet
 } from "react-instantsearch-dom"
 
 const HitCount = connectStateResults(({ searchResults }) => {
@@ -18,10 +19,12 @@ const HitCount = connectStateResults(({ searchResults }) => {
 })
 
 const PageHit = ({ hit }) => (
-  <Link to={`/${hit.category.slug}/${hit.slug}`}>
-    <GatsbyImage image={hit.image.localFile.childImageSharp.gatsbyImageData}/>
-    <h4 className="pt-2">{hit.title}</h4>
-    <p>{hit.description}</p>
+  <Link class="card" to={`/${hit.category.slug}/${hit.slug}`}>
+    <GatsbyImage image={hit.image.localFile.childImageSharp.gatsbyImageData} className="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{hit.title}</h5>
+      <Snippet attribute="description" hit={hit} className="card-text"/>
+    </div>
   </Link>
 )
 

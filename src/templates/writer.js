@@ -65,15 +65,15 @@ const Writer = ({ data, pageContext }) => {
                 const image = article.node.image.localFile.childImageSharp.gatsbyImageData
                 const description = article.node.description
                 return (
-                  <article class="blog-post">
-                    <GatsbyImage
-                      image={image}
-                      alt={name}
-                    />
-                    <h4 class="blog-post-title"><Link to={`/${category.slug}/${slug}`}>{title}</Link></h4>
-                    <p className="blog-post-meta">{date}</p>
-                    <p className="p-1">{description}</p>
-                  </article>
+                  <div class="card">
+                    <GatsbyImage image={image} className="card-img-top" />
+                    <div class="card-body">
+                      <h5 class="card-title">{title}</h5>
+                      <p className="blog-post-meta">{date}</p>
+                      <p class="card-text">{description}</p>
+                      <Link to={`/${category.slug}/${slug}`} class="btn btn-primary">Read More</Link>
+                    </div>
+                  </div>
                 )
               })}
             </div>
@@ -106,7 +106,7 @@ export const query = graphql`
           image {
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(width: 250)
               }
             }
           }
