@@ -45,10 +45,8 @@ body.dark {
         color: $primary
       };
     }
-    .ais-Hits-list li a {
-      h4, p {
-        color: $dark-primary !important;
-      }
+    .ais-Hits-list li a .card-body {
+      color: black;
     }
   }
 }
