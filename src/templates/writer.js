@@ -69,7 +69,7 @@ const Writer = ({ data, pageContext }) => {
                     <GatsbyImage image={image} className="card-img-top" />
                     <div class="card-body">
                       <h5 class="card-title">{title}</h5>
-                      <p className="blog-post-meta">{date}</p>
+                      <p className="blog-post-meta text-muted">{date}</p>
                       <p class="card-text">{description}</p>
                       <Link to={`/${category.slug}/${slug}`} class="btn btn-primary">Read More</Link>
                     </div>
