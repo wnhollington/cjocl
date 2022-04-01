@@ -13,7 +13,7 @@ export const useSiteMetadata = () => {
             favicon {
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(width: 250)
                 }
               }
             }

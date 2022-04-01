@@ -29,37 +29,24 @@
   .ais-Hits .ais-Hits-list {
     list-style: none;
     grid-auto-columns: 18em;
-    padding: 1em;
+    padding: 1rem;
     grid-column: 2 / -2;
     grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
-    gap: 1.5em;
+    gap: 1.5rem;
     display: grid;
+    justify-items: center;
     
     li.ais-Hits-item {
-      margin: .5rem;
-      max-width: 275px;
-      border-radius: 5px;
-      background-color: white;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       transition: all .2s ease-in-out;
       a {
         text-decoration: none;
+        color: black;
         &:hover {
           text-decoration: none !important;
         }
       }
-      .gatsby-image-wrapper {
-        border-radius: 5px 5px 0 0;
-      }
-      h4 {
-        text-align: center;
-      }
       &:hover {
         transform: scale(1.1)
-      }
-      p {
-        padding: .5rem;
-        color: black;
       }
     }
   }

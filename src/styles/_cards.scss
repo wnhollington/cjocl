@@ -24,7 +24,7 @@
 .grid-cards {
   overflow: scroll;
   grid-auto-columns: 18em;
-  margin: .5rem;
+  margin: .25rem;
   padding:.5rem;
   grid-auto-flow: column;
   grid-column: 2 / -2;
@@ -37,6 +37,7 @@
     border-radius: 5px;
     .gatsby-image-wrapper {
       border-radius: 5px 5px 0 0;
+      width: 100%;
     }
     h4, p {
       padding: 0 .25rem;
