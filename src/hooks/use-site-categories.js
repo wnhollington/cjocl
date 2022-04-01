@@ -9,6 +9,9 @@ export const useSiteCategories = () => {
             node {
               title
               slug
+              articles {
+                id
+              }
             }
           }
         }
