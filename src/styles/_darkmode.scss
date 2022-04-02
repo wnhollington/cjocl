@@ -2,23 +2,23 @@
   cursor: pointer;
 }
 
-body.dark {
+body.dark *{
   background-color: $dark-primary;
+  color: $dark-secondary;
 
-  a, a.blog-header-logo, .blog-post-meta, h1, h2, h3, h4, p, .toggle-theme, .HitCount, .ais-Pagination-link,  {
-    color: $dark-secondary!important;
+  h1, h2, h3, h4, h5, h6 {
+    a {
+      color: $dark-secondary !important;
+    }
   }
 
   .position-sticky .p-4, .blog-footer {
     background-color: $dark-primary !important;
   }
 
-  .btn.btn-outline-primary{
-    border: none !important;
-  }
-
-  .blog-article-pagination {
-    border-top: 1px solid white;
+  .card, .ais-Hits-item {
+    border: 1px solid;
+    border-radius: 5px;
   }
 
   a.link-secondary {
@@ -26,40 +26,45 @@ body.dark {
   }
   a.link-secondary.active, a.link-secondary:hover {
     text-decoration: underline;
+    color: $dark-secondary;
   }
 
-  .modal-header {
-    color: black;
+  .btn-primary, .btn-outline-primary:hover{
+    background-color: $primary;
+  }
+  .btn-outline-primary svg {
+    background: none;
   }
 
   .to-top {
     background-color: $dark-secondary;
     svg {
-      color: $dark-primary;
+      background-color: $dark-secondary;
+      path {
+        color: $dark-primary;
+      }
     }
   }
   
-  .search-results {
-    .Hits {
-      h4 span {
-        color: $primary
-      };
+  .search-box {
+    background-color: $dark-secondary;
+    svg, input, .ais-PoweredBy, .ais-PoweredBy * {
+      background: none;
+      color: $dark-primary;
     }
-    .ais-Hits-list li a .card-body {
-      color: black;
+    svg * {
+      color: $dark-primary;
     }
-  }
-
-  .card .card-body{
-    .card-text {
-      color: black !important;
-    }
-    a.btn {
-      color: white !important;
+    input:focus {
+      outline: none;
     }
   }
 
-  .modal-header p {
-    color: black !important;
+  #staticBackdrop {
+    background: none;
+    input#email {
+      color: $dark-primary;
+      background-color: $dark-secondary;
+    }
   }
 }
