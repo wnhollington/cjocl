@@ -62,9 +62,19 @@ body.dark *{
 
   #staticBackdrop {
     background: none;
-    input#email {
-      color: $dark-primary;
-      background-color: $dark-secondary;
+    .modal-content {
+      border: 1px solid;
+      border-radius: 5px;
+      .modal-header {
+        border-radius: 5px 5px 0 0;
+      }
+      .modal-body {
+        border-radius: 0 0 5px 5px;
+      }
+      input#email {
+        color: $dark-primary;
+        background-color: $dark-secondary;
+      }
     }
   }
 }
