@@ -28,6 +28,7 @@ const Sidebar = ({ aboutSection="This text should change depending on whether so
               if (node.articles.length > 0) {
                 return <li className='mt-1' key={node.title}><Link to={`/${node.slug}`}>{node.title}</Link></li>
               }
+              return null
             })}
           </ol>
         </div>

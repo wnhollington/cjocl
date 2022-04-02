@@ -11,6 +11,7 @@ const pageQuery = `{
           slug
           name
         }
+        createdAt(formatString: "MMMM DD, YYYY")
         image {
           localFile {
             childImageSharp {
@@ -23,13 +24,14 @@ const pageQuery = `{
   }
 }`
 
-function pageToAlgoliaRecord({ node: { slug, title, description, category, image } }) {
+function pageToAlgoliaRecord({ node: { slug, title, description, category, createdAt, image } }) {
   return {
     objectID: title,
     title,
     slug,
     description,
     category,
+    createdAt,
     image
   }
 }

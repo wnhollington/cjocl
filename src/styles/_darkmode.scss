@@ -18,7 +18,7 @@ body.dark {
   }
 
   .blog-article-pagination {
-    border-top: 1px solid $dark-secondary;
+    border-top: 1px solid white;
   }
 
   a.link-secondary {
@@ -48,5 +48,18 @@ body.dark {
     .ais-Hits-list li a .card-body {
       color: black;
     }
+  }
+
+  .card .card-body{
+    .card-text {
+      color: black !important;
+    }
+    a.btn {
+      color: white !important;
+    }
+  }
+
+  .modal-header p {
+    color: black !important;
   }
 }

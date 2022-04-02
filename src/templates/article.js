@@ -5,7 +5,7 @@ import footnotes from "remark-footnotes"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faLink, faCalendar } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Components
@@ -58,7 +58,7 @@ const Article = ({ data, pageContext }) => {
       {/* Header */}
       <header className='mb-4'>
         <h1 className="fw-bolder mb-1">{title}</h1>
-        <p className="text-muted mb-2">{date}</p>
+        <p className="text-muted mb-2"><FontAwesomeIcon icon={faCalendar} className="pe-2"/>{date}</p>
         <Link to={`/${category.slug}`} className="badge bg-primary">{category.name}</Link>
       </header>
 
@@ -122,7 +122,7 @@ export const query = graphql`
         picture {
           localFile {
             childImageSharp {
-              gatsbyImageData(width: 250)
+              gatsbyImageData
             }
           }
         }
