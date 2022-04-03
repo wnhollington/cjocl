@@ -14,7 +14,7 @@ export default connectSearchBox(
         value={currentRefinement}
         onFocus={onFocus}
       />
-      <PoweredBy />
+      <PoweredBy className="d-none d-md-inline"/>
     </div>
   )
 )
