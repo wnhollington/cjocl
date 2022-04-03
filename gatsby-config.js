@@ -42,7 +42,7 @@ module.exports = {
         short_name: `CJOCL`,
         start_url: `/`,
         background_color: `#f8f6f3`,
-        theme_color: `#787A91`,
+        theme_color: `#2a4234`,
         display: `standalone`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
