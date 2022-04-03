@@ -20,7 +20,7 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <Link class="card rounded" to={`/${hit.category.slug}/${hit.slug}`}>
-    <GatsbyImage image={hit.image.localFile.childImageSharp.gatsbyImageData} className="card-img-top" />
+    <GatsbyImage image={hit.image.localFile.childImageSharp.gatsbyImageData} className="card-img-top rounded-top" />
     <div class="card-body">
       <h5 class="card-title">{hit.title}</h5>
       <p className="text-muted">{hit.createdAt}</p>
