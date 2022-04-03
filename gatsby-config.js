@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://example.com`,
-    description: `test`,
-    title: `title`
+    siteUrl: `https://cjocl.gatsbyjs.io`,
+    title: `Colorado Journal of Construction Law`,
+    description: `The goal of the Colorado Journal of Construction Law is to be a comprehensive resource for owners, contractors, design professionals and anyone one else that is looking for practical insights and information concerning the legal aspects of the Colorado construction industry.`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -38,11 +38,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-bootstrap-5`,
-        short_name: `gb5-starter`,
+        name: `Colorado Journal of Construction Law`,
+        short_name: `CJOCL`,
         start_url: `/`,
-        background_color: `#1c0a7e`,
-        theme_color: `#1c0a7e`,
+        background_color: `#f8f6f3`,
+        theme_color: `#787A91`,
         display: `standalone`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
