@@ -28,33 +28,10 @@ $secondary: #787A91;
 @import "../../node_modules/bootstrap/scss/navbar";
 @import "../../node_modules/bootstrap/scss/pagination";
 
-// Custom CSS
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  color: $primary;
-  a {
-    text-decoration: none;
-  }
-}
-
-::selection {
-  background-color: $primary;
-  color: $white;
-}
-
-@include media-breakpoint-up(sm) {
-  #featured-cards {
-    .rounded-top {
-      border-radius: 5px 0 0 5px !important;
-    }
-    .rounded-bottom {
-      border-radius: 0 5px 5px 0 !important;
-    }
-  }
-}
-
 // Custom Styles
+@import "typography";
 @import "header";
+@import "featured-cards";
 @import "pagination";
 @import "modals";
 @import "badges";

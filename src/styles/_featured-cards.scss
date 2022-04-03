@@ -1,0 +1,10 @@
+@include media-breakpoint-up(sm) {
+  #featured-cards {
+    .rounded-top {
+      border-radius: 5px 0 0 5px !important;
+    }
+    .rounded-bottom {
+      border-radius: 0 5px 5px 0 !important;
+    }
+  }
+}
