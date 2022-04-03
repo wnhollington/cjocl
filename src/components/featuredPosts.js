@@ -44,7 +44,7 @@ const FeaturedPosts = () => {
       {/* Main Featured Post */}
       <div class="p-4 p-md-5 mb-2 text-white border rounded shadow-sm bg-dark" style={{background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("${featuredPost.node.image.url}") no-repeat center center fixed`}}>
         <div class="col-md-6 px-0">
-          <h1 class="display-4 fst-italic">{featuredPost.node.title}</h1>
+          <h1 class="display-4 fst-italic text-white">{featuredPost.node.title}</h1>
           <p class="lead my-3">{featuredPost.node.description}</p>
           <p class="lead mb-0">
             <Link to={`/${featuredPost.node.category.slug}/${featuredPost.node.slug}`} className="text-white fw-bold">Continue reading...</Link>
@@ -63,17 +63,17 @@ const FeaturedPosts = () => {
           const img = node.image.localFile.childImageSharp.gatsbyImageData
           
           return (
-            <div class="col-lg-6 mb-4" key={title}>
+            <div class="col-lg-6 mb-2" key={title}>
               <div class="cards row g-0 border rounded shadow-sm h-md-250 h-100 d-flex">
                 <div class="col-auto">
                   <GatsbyImage
                     image={img}
                     alt={title}
-                    class="h-100 rounded-left"
+                    class="h-100 rounded-start"
                   />
                 </div>
-                <div class="col p-2">
-                  <strong class="mb-2 badge bg-primary">{category.name}</strong>
+                <div class="col p-2 bg-light rounded-end">
+                  <strong class="mb-1 badge bg-primary">{category.name}</strong>
                   <h3 class="mb-0">{title}</h3>
                   <div class="mb-1 text-muted">{date}</div>
                   <p class="card-text mb-auto">{description}</p>

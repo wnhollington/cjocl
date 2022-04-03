@@ -19,7 +19,7 @@ const Page = props => {
       {/* Header */}
       <div className='mb-4'>
         <h1 className="fw-bolder mb-1">{title}</h1>
-        <p className="text-muted fst-italic mb-2">Last updated: {updated}</p>
+        <p className="text-muted mb-2">Last updated: {updated}</p>
       </div>
 
       <ReactMarkdown 

@@ -2,6 +2,7 @@ a.badge {
   text-decoration: none;
 
   &:hover {
-    color: white;
+    color: $white;
+    text-decoration: none;
   }
 }

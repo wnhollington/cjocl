@@ -1,35 +1,30 @@
 // Variables
-$primary: #1c0a7e;
+$body-bg: #f8f6f3;
+$primary: #2a4234;
 $secondary: #787A91;
-
-$dark-primary: #050311;
-$dark-secondary: #c7c7cf;
 
 // Imports
 @import "~bootstrap/scss/bootstrap";
 
-@include media-breakpoint-only(md) {
-  .container {
-    max-width: 775px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  color: $primary;
+  a {
+    text-decoration: none;
   }
 }
 
 ::selection {
   background-color: $primary;
-  color: whitesmoke;
+  color: $white;
 }
 
-a:hover, a:focus {
-  text-decoration: underline !important;
-}
 // Custom Styles
 @import "header";
 @import "pagination";
-@import "blog-post";
 @import "modals";
 @import "badges";
 @import "cards";
-@import "social";
 @import "footer";
-@import "darkmode";
 @import "search";
+@import "social";
