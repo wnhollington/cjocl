@@ -59,7 +59,6 @@ const Article = ({ data, pageContext }) => {
       <header className='mb-4'>
         <h1 className="fw-bolder mb-1">{title}</h1>
         <p className="text-muted mb-2"><FontAwesomeIcon icon={faCalendar} className="pe-2"/>{date}</p>
-        <Link to={`/${category.slug}`} className="badge bg-primary">{category.name}</Link>
       </header>
 
       <div className="row g-5">
@@ -81,7 +80,7 @@ const Article = ({ data, pageContext }) => {
             />
 
             {/* Social Share */}
-            <SocialShare url={`www.test.com/${category.slug}/${slug}`} title={title} description={description}/>
+            <SocialShare url={`https://cjocl.gatsbyjs.io/${category.slug}/${slug}`} title={title} description={description}/>
           </article>
 
           {/* Pagination */}
