@@ -9,7 +9,7 @@ const pageQuery = `{
         description
         category {
           slug
-          name
+          title
         }
         createdAt(formatString: "MMMM DD, YYYY")
         image {
