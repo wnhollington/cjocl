@@ -111,7 +111,7 @@ export const query = graphql`
             }
           }
           category {
-            name
+            title
             slug
           }
           author {

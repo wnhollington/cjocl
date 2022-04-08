@@ -15,7 +15,7 @@ const FeaturedPosts = () => {
             title
             createdAt(formatString: "DD MMMM, YYYY")
             category {
-              name
+              title
               slug
             }
             slug

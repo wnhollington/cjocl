@@ -88,7 +88,7 @@ export const query = graphql`
           title
           createdAt(formatString: "MMMM DD, YYYY")
           category {
-            name
+            title
             slug
           }
           slug

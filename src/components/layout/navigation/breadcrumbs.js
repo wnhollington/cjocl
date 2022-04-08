@@ -7,7 +7,7 @@ const Breadcrumbs= ({category, page}) => {
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-        {category ? <li class="breadcrumb-item"><Link to={`/${category.slug}`}>{category.name}</Link></li> : null}
+        {category ? <li class="breadcrumb-item"><Link to={`/${category.slug}`}>{category.title}</Link></li> : null}
         <li class="breadcrumb-item active" aria-current="page">{page}</li>
       </ol>
     </nav>
